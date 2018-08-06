@@ -13,6 +13,7 @@
 		8434B5192116DB0900F6AECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434B5182116DB0900F6AECB /* Assets.xcassets */; };
 		8434B51C2116DB0900F6AECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434B51A2116DB0900F6AECB /* LaunchScreen.storyboard */; };
 		8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B523211824A000F6AECB /* PlaySoundsViewController.swift */; };
+		8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8434B51B2116DB0900F6AECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8434B51D2116DB0900F6AECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8434B523211824A000F6AECB /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
+		8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaySoundsViewController+Audio.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				8434B5112116DB0700F6AECB /* AppDelegate.swift */,
-				8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */,
 				8434B5152116DB0700F6AECB /* Main.storyboard */,
+				8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */,
 				8434B5182116DB0900F6AECB /* Assets.xcassets */,
 				8434B51A2116DB0900F6AECB /* LaunchScreen.storyboard */,
 				8434B51D2116DB0900F6AECB /* Info.plist */,
 				8434B523211824A000F6AECB /* PlaySoundsViewController.swift */,
+				8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */,
+				8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */,
 				8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */,
 				8434B5122116DB0700F6AECB /* AppDelegate.swift in Sources */,
 			);
