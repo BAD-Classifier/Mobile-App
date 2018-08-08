@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,14 +44,23 @@
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MZR-7u-fz0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcd-Bd-ZMA">
+                                <rect key="frame" x="155" y="617" width="55" height="30"/>
+                                <state key="normal" title="Test ML"/>
+                                <connections>
+                                    <segue destination="3r0-C4-gpn" kind="show" id="MAL-pU-3nx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jcd-Bd-ZMA" secondAttribute="bottom" constant="20" id="4aY-AF-XKo"/>
                             <constraint firstItem="xqn-Zg-Mfw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HSb-Od-pDB"/>
                             <constraint firstItem="1m1-Yz-wAe" firstAttribute="centerX" secondItem="xqn-Zg-Mfw" secondAttribute="centerX" id="NR1-l3-jHt"/>
                             <constraint firstItem="BiY-u2-t52" firstAttribute="top" secondItem="1m1-Yz-wAe" secondAttribute="bottom" constant="29" id="Nkw-Nf-Xm8"/>
                             <constraint firstItem="1m1-Yz-wAe" firstAttribute="top" secondItem="xqn-Zg-Mfw" secondAttribute="bottom" constant="15" id="VKr-hu-3fD"/>
                             <constraint firstItem="xqn-Zg-Mfw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fRy-I9-iMH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jcd-Bd-ZMA" secondAttribute="trailing" constant="165" id="fcN-mN-uB2"/>
                             <constraint firstItem="BiY-u2-t52" firstAttribute="centerX" secondItem="1m1-Yz-wAe" secondAttribute="centerX" id="k0g-k8-lOq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -66,6 +76,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="964" y="31.934032983508249"/>
+        </scene>
+        <!--Image Classifier View Controller-->
+        <scene sceneID="0u0-GI-kEh">
+            <objects>
+                <viewController id="3r0-C4-gpn" customClass="ImageClassifierViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i8v-8z-Flv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMU-eY-1iy">
+                                <rect key="frame" x="141" y="318" width="92" height="30"/>
+                                <state key="normal" title="Import Image"/>
+                                <connections>
+                                    <action selector="importImage:" destination="3r0-C4-gpn" eventType="touchUpInside" id="dYa-UA-XwA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-gT-4dC">
+                                <rect key="frame" x="236" y="419" width="123" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="FWW-KF-UcM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDi-3H-h6R">
+                                <rect key="frame" x="16" y="419" width="212" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="00C-uy-dNW">
+                                <rect key="frame" x="71" y="141" width="233" height="106"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l0L-gT-4dC" firstAttribute="leading" secondItem="gDi-3H-h6R" secondAttribute="trailing" constant="8" symbolic="YES" id="6nF-x5-qSJ"/>
+                            <constraint firstItem="00C-uy-dNW" firstAttribute="leading" secondItem="pLJ-BK-1gH" secondAttribute="leading" constant="71" id="7nj-Dz-j5E"/>
+                            <constraint firstItem="l0L-gT-4dC" firstAttribute="trailing" secondItem="i8v-8z-Flv" secondAttribute="trailingMargin" id="ARP-K2-535"/>
+                            <constraint firstItem="qMU-eY-1iy" firstAttribute="centerX" secondItem="i8v-8z-Flv" secondAttribute="centerX" id="Afa-w0-jeQ"/>
+                            <constraint firstItem="gDi-3H-h6R" firstAttribute="top" secondItem="qMU-eY-1iy" secondAttribute="bottom" constant="71" id="QGM-MQ-lMK"/>
+                            <constraint firstItem="gDi-3H-h6R" firstAttribute="baseline" secondItem="l0L-gT-4dC" secondAttribute="baseline" id="WpR-md-4HO"/>
+                            <constraint firstItem="00C-uy-dNW" firstAttribute="centerX" secondItem="qMU-eY-1iy" secondAttribute="centerX" id="b1d-SM-x7V"/>
+                            <constraint firstItem="qMU-eY-1iy" firstAttribute="centerY" secondItem="i8v-8z-Flv" secondAttribute="centerY" id="l4d-Lk-bgc"/>
+                            <constraint firstItem="gDi-3H-h6R" firstAttribute="leading" secondItem="i8v-8z-Flv" secondAttribute="leadingMargin" id="oJW-rS-wa9"/>
+                            <constraint firstItem="00C-uy-dNW" firstAttribute="top" secondItem="pLJ-BK-1gH" secondAttribute="top" constant="77" id="qqD-lz-vfM"/>
+                            <constraint firstItem="qMU-eY-1iy" firstAttribute="top" secondItem="00C-uy-dNW" secondAttribute="bottom" constant="71" id="wHD-Gk-B9Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pLJ-BK-1gH"/>
+                    </view>
+                    <connections>
+                        <outlet property="Accuracy" destination="l0L-gT-4dC" id="JEV-f7-SI9"/>
+                        <outlet property="classifierLabel" destination="gDi-3H-h6R" id="dPn-Ch-iDZ"/>
+                        <outlet property="myImageView" destination="00C-uy-dNW" id="eIx-Os-ZwB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1z-bH-blF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="785.75712143928047"/>
         </scene>
         <!--Play Sounds View Controller-->
         <scene sceneID="vFM-kr-6I7">

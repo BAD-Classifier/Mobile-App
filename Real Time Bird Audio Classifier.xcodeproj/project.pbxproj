@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */; };
+		840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 840F1F42211AC19D00F8E6DD /* it_5.mlmodel */; };
 		8434B5122116DB0700F6AECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B5112116DB0700F6AECB /* AppDelegate.swift */; };
 		8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */; };
 		8434B5172116DB0700F6AECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434B5152116DB0700F6AECB /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifierViewController.swift; sourceTree = "<group>"; };
+		840F1F42211AC19D00F8E6DD /* it_5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = it_5.mlmodel; sourceTree = "<group>"; };
 		8434B50E2116DB0700F6AECB /* Real Time Bird Audio Classifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Time Bird Audio Classifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8434B5112116DB0700F6AECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 		8434B5102116DB0700F6AECB /* Real Time Bird Audio Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				840F1F42211AC19D00F8E6DD /* it_5.mlmodel */,
 				8434B5112116DB0700F6AECB /* AppDelegate.swift */,
 				8434B5152116DB0700F6AECB /* Main.storyboard */,
 				8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */,
@@ -66,6 +71,7 @@
 				8434B51D2116DB0900F6AECB /* Info.plist */,
 				8434B523211824A000F6AECB /* PlaySoundsViewController.swift */,
 				8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */,
+				840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
 			sourceTree = "<group>";
@@ -142,6 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */,
+				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
+				840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */,
 				8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */,
 				8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */,
 				8434B5122116DB0700F6AECB /* AppDelegate.swift in Sources */,
