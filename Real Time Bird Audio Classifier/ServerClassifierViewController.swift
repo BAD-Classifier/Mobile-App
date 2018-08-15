@@ -16,9 +16,11 @@ class ServerClassifierViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var temp: UILabel!
+    @IBOutlet weak var percentage: UILabel!
     var contentURL: URL!
     var s3Url: URL!
     
+    @IBOutlet weak var displayImage: UIImageView!
     let baseURL = "http://142.93.198.134:5000/"
     
     
@@ -35,13 +37,16 @@ class ServerClassifierViewController: UIViewController {
     }
     @IBAction func upload(_ sender: Any) {
         temp.text = "Uploading"
-        var nametoUpload = birdSounds[myIndex]
+        let nametoUpload = birdSounds[myIndex]
         uploadFile(with: nametoUpload, type: "wav")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = birdSounds[myIndex]
+        
+//        titleLabel.text = birdSounds[myIndex]
+        self.titleLabel?.text = ""
+        self.percentage?.text = ""
         let name = birdSounds[myIndex]
         temp.text = ""
         
@@ -96,6 +101,7 @@ class ServerClassifierViewController: UIViewController {
             }
             if task.result != nil {
                 print("Uploaded \(key)")
+                self.temp.text = "Classifying"
                 let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
                 self.contentURL = res
                 print("\(self.contentURL!)")
@@ -107,7 +113,24 @@ class ServerClassifierViewController: UIViewController {
                     if (response.result.isSuccess) {
                         //                print("Response String: \(response.result.value!)")
                         ans =  "\(response.result.value!)"
-                        self.titleLabel?.text = "\(response.result.value!)"
+                        var ansArray = ans.components(separatedBy: " ")
+                        self.titleLabel?.text = ansArray[0].components(separatedBy: ":")[0]
+                        self.percentage?.text = ansArray[1]
+                        
+                        print(ansArray[0].components(separatedBy: ":")[0])
+                        if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+                            self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+                            self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+                            self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+                            self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+                            self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+                        }
+                        
+                        self.temp.text = "Done"
                         print(ans)
                     } else {
                         ans = "404 API request failed"
