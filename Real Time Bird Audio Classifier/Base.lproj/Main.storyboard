@@ -51,6 +51,13 @@
                                     <segue destination="3r0-C4-gpn" kind="show" id="MAL-pU-3nx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rz-BE-IKF">
+                                <rect key="frame" x="294" y="617" width="60" height="30"/>
+                                <state key="normal" title="BackEnd"/>
+                                <connections>
+                                    <segue destination="XbO-gs-0s9" kind="show" id="bpM-jg-Yew"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -58,7 +65,9 @@
                             <constraint firstItem="xqn-Zg-Mfw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HSb-Od-pDB"/>
                             <constraint firstItem="1m1-Yz-wAe" firstAttribute="centerX" secondItem="xqn-Zg-Mfw" secondAttribute="centerX" id="NR1-l3-jHt"/>
                             <constraint firstItem="BiY-u2-t52" firstAttribute="top" secondItem="1m1-Yz-wAe" secondAttribute="bottom" constant="29" id="Nkw-Nf-Xm8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6rz-BE-IKF" secondAttribute="trailing" constant="21" id="TQB-H4-bxe"/>
                             <constraint firstItem="1m1-Yz-wAe" firstAttribute="top" secondItem="xqn-Zg-Mfw" secondAttribute="bottom" constant="15" id="VKr-hu-3fD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6rz-BE-IKF" secondAttribute="bottom" constant="20" id="cTH-Kx-51h"/>
                             <constraint firstItem="xqn-Zg-Mfw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fRy-I9-iMH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jcd-Bd-ZMA" secondAttribute="trailing" constant="165" id="fcN-mN-uB2"/>
                             <constraint firstItem="BiY-u2-t52" firstAttribute="centerX" secondItem="1m1-Yz-wAe" secondAttribute="centerX" id="k0g-k8-lOq"/>
@@ -135,7 +144,93 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1z-bH-blF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="785.75712143928047"/>
+            <point key="canvasLocation" x="252" y="839"/>
+        </scene>
+        <!--Sounds View Controller-->
+        <scene sceneID="fmF-xL-ueS">
+            <objects>
+                <viewController id="XbO-gs-0s9" customClass="SoundsViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tyq-n9-HPG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Qo-cG-DTY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="pBz-U0-W2J">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pBz-U0-W2J" id="wxS-Pj-U8A">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XbO-gs-0s9" id="2OW-ON-gfS"/>
+                                    <outlet property="delegate" destination="XbO-gs-0s9" id="Kfe-6c-IDG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VsJ-eo-uUP" firstAttribute="bottom" secondItem="4Qo-cG-DTY" secondAttribute="bottom" constant="403" id="1Pj-2a-SbW"/>
+                            <constraint firstItem="4Qo-cG-DTY" firstAttribute="trailing" secondItem="VsJ-eo-uUP" secondAttribute="trailing" id="Cnp-8e-xrc"/>
+                            <constraint firstItem="4Qo-cG-DTY" firstAttribute="leading" secondItem="VsJ-eo-uUP" secondAttribute="leading" id="a55-NR-tOY"/>
+                            <constraint firstItem="4Qo-cG-DTY" firstAttribute="top" secondItem="VsJ-eo-uUP" secondAttribute="top" id="emC-WU-OHg"/>
+                            <constraint firstItem="4Qo-cG-DTY" firstAttribute="trailing" secondItem="VsJ-eo-uUP" secondAttribute="trailing" id="rZw-AY-mWt"/>
+                            <constraint firstItem="4Qo-cG-DTY" firstAttribute="top" secondItem="VsJ-eo-uUP" secondAttribute="top" id="sIg-tr-tcJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VsJ-eo-uUP"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="4Qo-cG-DTY" id="VuR-rz-n1M"/>
+                        <segue destination="JMd-Ml-KuC" kind="show" identifier="segue1" id="Ilt-Cr-Dyr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fyv-4B-arH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1549.5999999999999" y="836.13193403298362"/>
+        </scene>
+        <!--Server Classifier View Controller-->
+        <scene sceneID="iW6-rv-cVA">
+            <objects>
+                <viewController id="JMd-Ml-KuC" customClass="ServerClassifierViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="srP-5h-67Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1f-uR-T1o">
+                                <rect key="frame" x="166" y="188" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C93-XF-Jjl">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CnD-nF-VL3" firstAttribute="trailing" secondItem="C93-XF-Jjl" secondAttribute="trailing" constant="167" id="EGF-9V-5uN"/>
+                            <constraint firstItem="X1f-uR-T1o" firstAttribute="leading" secondItem="C93-XF-Jjl" secondAttribute="leading" id="QMz-Dt-Pn8"/>
+                            <constraint firstItem="X1f-uR-T1o" firstAttribute="top" secondItem="CnD-nF-VL3" secondAttribute="top" constant="124" id="m43-IP-fzx"/>
+                            <constraint firstItem="C93-XF-Jjl" firstAttribute="top" secondItem="X1f-uR-T1o" secondAttribute="bottom" constant="114" id="pao-km-rIH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CnD-nF-VL3"/>
+                    </view>
+                    <connections>
+                        <outlet property="temp" destination="C93-XF-Jjl" id="PmZ-IK-N3c"/>
+                        <outlet property="titleLabel" destination="X1f-uR-T1o" id="FRI-VC-kc3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Cs-up-SJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2610" y="839"/>
         </scene>
         <!--Play Sounds View Controller-->
         <scene sceneID="vFM-kr-6I7">

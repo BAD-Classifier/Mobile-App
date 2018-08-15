@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		067426805D83E98508E6778D /* Pods_Real_Time_Bird_Audio_Classifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */; };
 		840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */; };
 		840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 840F1F42211AC19D00F8E6DD /* it_5.mlmodel */; };
+		842E492E2123F8860003A8FE /* local_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 842E492D2123F8860003A8FE /* local_sound.mp3 */; };
 		8434B5122116DB0700F6AECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B5112116DB0700F6AECB /* AppDelegate.swift */; };
 		8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */; };
 		8434B5172116DB0700F6AECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434B5152116DB0700F6AECB /* Main.storyboard */; };
@@ -16,11 +18,19 @@
 		8434B51C2116DB0900F6AECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434B51A2116DB0900F6AECB /* LaunchScreen.storyboard */; };
 		8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B523211824A000F6AECB /* PlaySoundsViewController.swift */; };
 		8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */; };
+		846E220921241168009C4685 /* pika.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E220821241167009C4685 /* pika.png */; };
+		846E221121244D01009C4685 /* SoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E221021244D01009C4685 /* SoundsViewController.swift */; };
+		846E221421245262009C4685 /* andropadus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846E221221245261009C4685 /* andropadus.mp3 */; };
+		846E221521245262009C4685 /* anthus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846E221321245261009C4685 /* anthus.mp3 */; };
+		846E221721245492009C4685 /* ServerClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E221621245492009C4685 /* ServerClassifierViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11C32A3E17ED83D5376AC450 /* Pods-Real Time Bird Audio Classifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real Time Bird Audio Classifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-Real Time Bird Audio Classifier/Pods-Real Time Bird Audio Classifier.release.xcconfig"; sourceTree = "<group>"; };
+		2E3532E8948D60C3E8BCB0B7 /* Pods-Real Time Bird Audio Classifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real Time Bird Audio Classifier.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Real Time Bird Audio Classifier/Pods-Real Time Bird Audio Classifier.debug.xcconfig"; sourceTree = "<group>"; };
 		840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifierViewController.swift; sourceTree = "<group>"; };
 		840F1F42211AC19D00F8E6DD /* it_5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = it_5.mlmodel; sourceTree = "<group>"; };
+		842E492D2123F8860003A8FE /* local_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = local_sound.mp3; sourceTree = "<group>"; };
 		8434B50E2116DB0700F6AECB /* Real Time Bird Audio Classifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Time Bird Audio Classifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8434B5112116DB0700F6AECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +40,12 @@
 		8434B51D2116DB0900F6AECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8434B523211824A000F6AECB /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaySoundsViewController+Audio.swift"; sourceTree = "<group>"; };
+		846E220821241167009C4685 /* pika.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pika.png; sourceTree = "<group>"; };
+		846E221021244D01009C4685 /* SoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsViewController.swift; sourceTree = "<group>"; };
+		846E221221245261009C4685 /* andropadus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = andropadus.mp3; sourceTree = "<group>"; };
+		846E221321245261009C4685 /* anthus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = anthus.mp3; sourceTree = "<group>"; };
+		846E221621245492009C4685 /* ServerClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerClassifierViewController.swift; sourceTree = "<group>"; };
+		9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Bird_Audio_Classifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067426805D83E98508E6778D /* Pods_Real_Time_Bird_Audio_Classifier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +65,8 @@
 			children = (
 				8434B5102116DB0700F6AECB /* Real Time Bird Audio Classifier */,
 				8434B50F2116DB0700F6AECB /* Products */,
+				FD730EB45C151B6953119E1C /* Pods */,
+				EDE1C55CAC38D4888CC4EAE8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +81,10 @@
 		8434B5102116DB0700F6AECB /* Real Time Bird Audio Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				846E221221245261009C4685 /* andropadus.mp3 */,
+				846E221321245261009C4685 /* anthus.mp3 */,
+				842E492D2123F8860003A8FE /* local_sound.mp3 */,
+				846E220821241167009C4685 /* pika.png */,
 				840F1F42211AC19D00F8E6DD /* it_5.mlmodel */,
 				8434B5112116DB0700F6AECB /* AppDelegate.swift */,
 				8434B5152116DB0700F6AECB /* Main.storyboard */,
@@ -72,8 +95,27 @@
 				8434B523211824A000F6AECB /* PlaySoundsViewController.swift */,
 				8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */,
 				840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */,
+				846E221021244D01009C4685 /* SoundsViewController.swift */,
+				846E221621245492009C4685 /* ServerClassifierViewController.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
+			sourceTree = "<group>";
+		};
+		EDE1C55CAC38D4888CC4EAE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD730EB45C151B6953119E1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E3532E8948D60C3E8BCB0B7 /* Pods-Real Time Bird Audio Classifier.debug.xcconfig */,
+				11C32A3E17ED83D5376AC450 /* Pods-Real Time Bird Audio Classifier.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8434B5202116DB0900F6AECB /* Build configuration list for PBXNativeTarget "Real Time Bird Audio Classifier" */;
 			buildPhases = (
+				296E1467BAB86078F55E5743 /* [CP] Check Pods Manifest.lock */,
 				8434B50A2116DB0700F6AECB /* Sources */,
 				8434B50B2116DB0700F6AECB /* Frameworks */,
 				8434B50C2116DB0700F6AECB /* Resources */,
+				A6CC35796EFF0E63BD44E4A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,12 +179,59 @@
 			buildActionMask = 2147483647;
 			files = (
 				8434B51C2116DB0900F6AECB /* LaunchScreen.storyboard in Resources */,
+				846E220921241168009C4685 /* pika.png in Resources */,
+				842E492E2123F8860003A8FE /* local_sound.mp3 in Resources */,
 				8434B5192116DB0900F6AECB /* Assets.xcassets in Resources */,
 				8434B5172116DB0700F6AECB /* Main.storyboard in Resources */,
+				846E221421245262009C4685 /* andropadus.mp3 in Resources */,
+				846E221521245262009C4685 /* anthus.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		296E1467BAB86078F55E5743 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Real Time Bird Audio Classifier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6CC35796EFF0E63BD44E4A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Real Time Bird Audio Classifier/Pods-Real Time Bird Audio Classifier-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Real Time Bird Audio Classifier/Pods-Real Time Bird Audio Classifier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8434B50A2116DB0700F6AECB /* Sources */ = {
@@ -149,9 +240,11 @@
 			files = (
 				8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */,
 				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
+				846E221721245492009C4685 /* ServerClassifierViewController.swift in Sources */,
 				840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */,
 				8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */,
 				8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */,
+				846E221121244D01009C4685 /* SoundsViewController.swift in Sources */,
 				8434B5122116DB0700F6AECB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +387,7 @@
 		};
 		8434B5212116DB0900F6AECB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E3532E8948D60C3E8BCB0B7 /* Pods-Real Time Bird Audio Classifier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,6 +406,7 @@
 		};
 		8434B5222116DB0900F6AECB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11C32A3E17ED83D5376AC450 /* Pods-Real Time Bird Audio Classifier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
