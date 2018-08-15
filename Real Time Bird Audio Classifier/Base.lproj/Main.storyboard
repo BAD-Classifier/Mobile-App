@@ -213,13 +213,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3c-TX-Jg3">
+                                <rect key="frame" x="102" y="388" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playSound:" destination="JMd-Ml-KuC" eventType="touchUpInside" id="HBA-Ts-JOM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AE-po-2F4">
+                                <rect key="frame" x="162" y="452" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="upload:" destination="JMd-Ml-KuC" eventType="touchUpInside" id="Vzg-pC-Gbq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewX-Vg-1wh">
+                                <rect key="frame" x="244" y="388" width="42" height="30"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="pauseSound:" destination="JMd-Ml-KuC" eventType="touchUpInside" id="uqE-uL-GYg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6AE-po-2F4" firstAttribute="centerX" secondItem="C93-XF-Jjl" secondAttribute="centerX" id="12L-OY-6VC"/>
+                            <constraint firstItem="W3c-TX-Jg3" firstAttribute="baseline" secondItem="ewX-Vg-1wh" secondAttribute="baseline" id="AMG-4e-AGk"/>
+                            <constraint firstItem="CnD-nF-VL3" firstAttribute="bottom" secondItem="6AE-po-2F4" secondAttribute="bottom" constant="185" id="CUh-Wk-U13"/>
                             <constraint firstItem="CnD-nF-VL3" firstAttribute="trailing" secondItem="C93-XF-Jjl" secondAttribute="trailing" constant="167" id="EGF-9V-5uN"/>
+                            <constraint firstItem="W3c-TX-Jg3" firstAttribute="leading" secondItem="CnD-nF-VL3" secondAttribute="leading" constant="102" id="Jdv-BM-rU1"/>
+                            <constraint firstItem="CnD-nF-VL3" firstAttribute="trailing" secondItem="ewX-Vg-1wh" secondAttribute="trailing" constant="89" id="MaV-UR-nHF"/>
                             <constraint firstItem="X1f-uR-T1o" firstAttribute="leading" secondItem="C93-XF-Jjl" secondAttribute="leading" id="QMz-Dt-Pn8"/>
                             <constraint firstItem="X1f-uR-T1o" firstAttribute="top" secondItem="CnD-nF-VL3" secondAttribute="top" constant="124" id="m43-IP-fzx"/>
                             <constraint firstItem="C93-XF-Jjl" firstAttribute="top" secondItem="X1f-uR-T1o" secondAttribute="bottom" constant="114" id="pao-km-rIH"/>
+                            <constraint firstItem="W3c-TX-Jg3" firstAttribute="top" secondItem="CnD-nF-VL3" secondAttribute="top" constant="324" id="rCH-zt-kCI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CnD-nF-VL3"/>
                     </view>
