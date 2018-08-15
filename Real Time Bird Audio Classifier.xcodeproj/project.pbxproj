@@ -23,6 +23,11 @@
 		846E221421245262009C4685 /* andropadus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846E221221245261009C4685 /* andropadus.mp3 */; };
 		846E221521245262009C4685 /* anthus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846E221321245261009C4685 /* anthus.mp3 */; };
 		846E221721245492009C4685 /* ServerClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E221621245492009C4685 /* ServerClassifierViewController.swift */; };
+		846E221A2124CEE8009C4685 /* Andropadus.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846E22182124CEE6009C4685 /* Andropadus.wav */; };
+		846E221B2124CEE8009C4685 /* Anthus.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846E22192124CEE7009C4685 /* Anthus.wav */; };
+		846E221F2124D031009C4685 /* Camaroptera.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846E221C2124D02E009C4685 /* Camaroptera.wav */; };
+		846E22202124D031009C4685 /* Chlorophoneus.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846E221D2124D030009C4685 /* Chlorophoneus.wav */; };
+		846E22212124D031009C4685 /* Cossypha.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846E221E2124D031009C4685 /* Cossypha.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +50,11 @@
 		846E221221245261009C4685 /* andropadus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = andropadus.mp3; sourceTree = "<group>"; };
 		846E221321245261009C4685 /* anthus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = anthus.mp3; sourceTree = "<group>"; };
 		846E221621245492009C4685 /* ServerClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerClassifierViewController.swift; sourceTree = "<group>"; };
+		846E22182124CEE6009C4685 /* Andropadus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Andropadus.wav; sourceTree = "<group>"; };
+		846E22192124CEE7009C4685 /* Anthus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Anthus.wav; sourceTree = "<group>"; };
+		846E221C2124D02E009C4685 /* Camaroptera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Camaroptera.wav; sourceTree = "<group>"; };
+		846E221D2124D030009C4685 /* Chlorophoneus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Chlorophoneus.wav; sourceTree = "<group>"; };
+		846E221E2124D031009C4685 /* Cossypha.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Cossypha.wav; sourceTree = "<group>"; };
 		9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Bird_Audio_Classifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +94,11 @@
 				846E221221245261009C4685 /* andropadus.mp3 */,
 				846E221321245261009C4685 /* anthus.mp3 */,
 				842E492D2123F8860003A8FE /* local_sound.mp3 */,
+				846E22182124CEE6009C4685 /* Andropadus.wav */,
+				846E221C2124D02E009C4685 /* Camaroptera.wav */,
+				846E221D2124D030009C4685 /* Chlorophoneus.wav */,
+				846E221E2124D031009C4685 /* Cossypha.wav */,
+				846E22192124CEE7009C4685 /* Anthus.wav */,
 				846E220821241167009C4685 /* pika.png */,
 				840F1F42211AC19D00F8E6DD /* it_5.mlmodel */,
 				8434B5112116DB0700F6AECB /* AppDelegate.swift */,
@@ -181,6 +196,11 @@
 				8434B51C2116DB0900F6AECB /* LaunchScreen.storyboard in Resources */,
 				846E220921241168009C4685 /* pika.png in Resources */,
 				842E492E2123F8860003A8FE /* local_sound.mp3 in Resources */,
+				846E221B2124CEE8009C4685 /* Anthus.wav in Resources */,
+				846E221F2124D031009C4685 /* Camaroptera.wav in Resources */,
+				846E22202124D031009C4685 /* Chlorophoneus.wav in Resources */,
+				846E22212124D031009C4685 /* Cossypha.wav in Resources */,
+				846E221A2124CEE8009C4685 /* Andropadus.wav in Resources */,
 				8434B5192116DB0900F6AECB /* Assets.xcassets in Resources */,
 				8434B5172116DB0700F6AECB /* Main.storyboard in Resources */,
 				846E221421245262009C4685 /* andropadus.mp3 in Resources */,
@@ -219,12 +239,14 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

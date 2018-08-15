@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AWSCognito
 import AWSS3
-
+import Alamofire
 
 class ServerClassifierViewController: UIViewController {
 
@@ -18,6 +18,9 @@ class ServerClassifierViewController: UIViewController {
     @IBOutlet weak var temp: UILabel!
     var contentURL: URL!
     var s3Url: URL!
+    
+    let baseURL = "http://142.93.198.134:5000/"
+    
     
     let bucketName = "birdcalls"
     var player = AVAudioPlayer()
@@ -33,7 +36,7 @@ class ServerClassifierViewController: UIViewController {
     @IBAction func upload(_ sender: Any) {
         temp.text = "Uploading"
         var nametoUpload = birdSounds[myIndex]
-        uploadFile(with: nametoUpload, type: "mp3")
+        uploadFile(with: nametoUpload, type: "wav")
     }
     
     override func viewDidLoad() {
@@ -42,9 +45,16 @@ class ServerClassifierViewController: UIViewController {
         let name = birdSounds[myIndex]
         temp.text = ""
         
+//        Alamofire.request(baseURL).responseString { response in
+//            print("Success: \(response.result.isSuccess)")
+//            print("Response String: \(response.result.value!)")
+//        }
+//        print("The GOAT")
+//        print(getClassificationFromBackend(path: ""))
+        
         do{
 
-            player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: name, ofType: "mp3")!) )
+            player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: name, ofType: "wav")!) )
             player.prepareToPlay()
         } catch {
             print(error)
@@ -89,12 +99,51 @@ class ServerClassifierViewController: UIViewController {
                 let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
                 self.contentURL = res
                 print("\(self.contentURL!)")
-                self.temp.text = "Done Upload"
+//                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
+                var ans = ""
+                Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
+                    print("Success: \(response.result.isSuccess)")
+                    
+                    if (response.result.isSuccess) {
+                        //                print("Response String: \(response.result.value!)")
+                        ans =  "\(response.result.value!)"
+                        self.titleLabel?.text = "\(response.result.value!)"
+                        print(ans)
+                    } else {
+                        ans = "404 API request failed"
+                    }
+                }
+//                let tempANS = self.getClassificationFromBackend(path: "classify/\(self.contentURL!)")
+                print(ans)
+//                self.titleLabel?.text = ans
+                
             }
             return nil
         }
     }
 
+    func getClassificationFromBackend(path: String) -> String
+    {
+        let classifyURL = baseURL + path
+        print(classifyURL)
+        var ans = ""
+        Alamofire.request(classifyURL).responseString { response in
+            print("Success: \(response.result.isSuccess)")
+            
+            if (response.result.isSuccess) {
+//                print("Response String: \(response.result.value!)")
+                ans =  "\(response.result.value!)"
+                print(ans)
+            } else {
+                ans = "404 API request failed"
+            }
+        }
+    
+        return ans
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

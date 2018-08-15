@@ -8,7 +8,7 @@
 
 import UIKit
 
-var birdSounds = ["andropadus", "anthus"]
+var birdSounds = ["Andropadus", "Anthus", "Camaroptera", "Chlorophoneus", "Cossypha"]
 var birdDesc = ["1", "2"]
 var myIndex = 0
 class SoundsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
