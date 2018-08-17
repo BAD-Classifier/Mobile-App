@@ -22,6 +22,7 @@ class ServerClassifierViewController: UIViewController {
     
     @IBOutlet weak var displayImage: UIImageView!
     let baseURL = "http://142.93.198.134:5000/"
+//    let baseURL = "http://192.168.1.162:5000/"
     
     
     let bucketName = "birdcalls"
@@ -86,68 +87,215 @@ class ServerClassifierViewController: UIViewController {
         print(key)
         let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
         let localImageUrl = URL(fileURLWithPath: localImagePath)
-//        let localImageUrl = URL(fileURLWithPath: "\(audioRecorder.url)")
         
         let request = AWSS3TransferManagerUploadRequest()!
-        request.bucket = bucketName
+        request.bucket = self.bucketName
         request.key = key
         request.body = localImageUrl
         request.acl = .publicReadWrite
+        let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
+        self.contentURL = res
+        print("\(self.contentURL!)")
         
-        let transferManager = AWSS3TransferManager.default()
-        transferManager.upload(request).continueOnSuccessWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
-            if let error = task.error {
-                print(error)
-            }
-            if task.result != nil {
-                print("Uploaded \(key)")
-                self.temp.text = "Classifying"
-                let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
-                self.contentURL = res
-                print("\(self.contentURL!)")
-//                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
-                var ans = ""
-                Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
-                    print("Success: \(response.result.isSuccess)")
-                    
-                    if (response.result.isSuccess) {
-                        //                print("Response String: \(response.result.value!)")
-                        ans =  "\(response.result.value!)"
-                        var ansArray = ans.components(separatedBy: " ")
-                        self.titleLabel?.text = ansArray[0].components(separatedBy: ":")[0]
-                        self.percentage?.text = ansArray[1]
-                        
-                        print(ansArray[0].components(separatedBy: ":")[0])
-                        if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
-                            self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
-                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
-                            self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
-                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
-                            self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
-                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
-                            self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
-                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
-                            self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+        Alamofire.request(self.baseURL + "exists/\(self.contentURL!)").responseString { response in
+            print("Success: \(response.result.isSuccess)")
+            if (response.result.isSuccess) {
+                print(" does exist: \(response.result.value!)")
+                if ("\(response.result.value!)" == "true") {
+                    print("Response was true")
+                    Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
+                        print("Success: \(response.result.isSuccess)")
+                        var ans = ""
+                        self.temp?.text = "Classifying"
+                        if (response.result.isSuccess) {
+                            //                print("Response String: \(response.result.value!)")
+                            ans =  "\(response.result.value!)"
+                            var ansArray = ans.components(separatedBy: " ")
+                            self.titleLabel?.text = ansArray[0].components(separatedBy: ":")[0]
+                            self.percentage?.text = ansArray[1]
+                            
+                            print(ansArray[0].components(separatedBy: ":")[0])
+                            if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+                                self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+                                self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+                                self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+                                self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+                                self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+                            }
+                            
+                            self.temp.text = "Done"
+                            print(ans)
+                        } else {
+                            ans = "404 API request failed"
                         }
-                        
-                        self.temp.text = "Done"
-                        print(ans)
-                    } else {
-                        ans = "404 API request failed"
-                    }
+//
+//
+//                    let transferManager = AWSS3TransferManager.default()
+//                    transferManager.upload(request).continueOnSuccessWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
+//                        if let error = task.error {
+//                            print(error)
+//                        }
+//                        if task.result != nil {
+//                            print("Uploaded \(key)")
+//                            self.temp.text = "Classifying"
+//                            let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
+//                            self.contentURL = res
+//                            print("\(self.contentURL!)")
+//                            //                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
+//                            var ans = ""
+//                            Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
+//                                print("Success: \(response.result.isSuccess)")
+//
+//                                if (response.result.isSuccess) {
+//                                    //                print("Response String: \(response.result.value!)")
+//                                    ans =  "\(response.result.value!)"
+//                                    var ansArray = ans.components(separatedBy: " ")
+//                                    self.titleLabel?.text = ansArray[0].components(separatedBy: ":")[0]
+//                                    self.percentage?.text = ansArray[1]
+//
+//                                    print(ansArray[0].components(separatedBy: ":")[0])
+//                                    if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+//                                        self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+//                                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+//                                        self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+//                                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+//                                        self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+//                                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+//                                        self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+//                                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+//                                        self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+//                                    }
+//
+//                                    self.temp.text = "Done"
+//                                    print(ans)
+//                                } else {
+//                                    ans = "404 API request failed"
+//                                }
+//                            }
+//                            //                let tempANS = self.getClassificationFromBackend(path: "classify/\(self.contentURL!)")
+//                            print(ans)
+//                            //                self.titleLabel?.text = ans
+//
+//                        }
+//                        return nil
+//                    }
+//
+                    
                 }
-//                let tempANS = self.getClassificationFromBackend(path: "classify/\(self.contentURL!)")
-                print(ans)
-//                self.titleLabel?.text = ans
-                
-            }
-            return nil
+            } else {
+                    print("Response was false")
+                var ans = ""
+                    let transferManager = AWSS3TransferManager.default()
+                            transferManager.upload(request).continueOnSuccessWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
+                                if let error = task.error {
+                                    print(error)
+                                }
+                                if task.result != nil {
+                                    print("Uploaded \(key)")
+                                    self.temp.text = "Classifying"
+                                    let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
+                                    self.contentURL = res
+                                    print("\(self.contentURL!)")
+                    //                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
+                                    var ans = ""
+                                    Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
+                                        print("Success: \(response.result.isSuccess)")
+                    
+                                        if (response.result.isSuccess) {
+                                            //                print("Response String: \(response.result.value!)")
+                                            ans =  "\(response.result.value!)"
+                                            var ansArray = ans.components(separatedBy: " ")
+                                            self.titleLabel?.text = ansArray[0].components(separatedBy: ":")[0]
+                                            self.percentage?.text = ansArray[1]
+                    
+                                            print(ansArray[0].components(separatedBy: ":")[0])
+                                            if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+                                                self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+                                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+                                                self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+                                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+                                                self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+                                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+                                                self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+                                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+                                                self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+                                            }
+                    
+                                            self.temp.text = "Done"
+                                            print(ans)
+                                        } else {
+                                            ans = "404 API request failed"
+                                        }
+                                    }
+                    //                let tempANS = self.getClassificationFromBackend(path: "classify/\(self.contentURL!)")
+                                    print(ans)
+                    //                self.titleLabel?.text = ans
+                    
+                                }
+                                return nil
+                    }
+
+        
+        
+//
+//        let transferManager = AWSS3TransferManager.default()
+//        transferManager.upload(request).continueOnSuccessWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
+//            if let error = task.error {
+//                print(error)
+//            }
+//            if task.result != nil {
+//                print("Uploaded \(key)")
+//                self.temp.text = "Classifying"
+//                let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
+//                self.contentURL = res
+//                print("\(self.contentURL!)")
+////                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
+//                var ans = ""
+//                Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
+//                    print("Success: \(response.result.isSuccess)")
+//
+//                    if (response.result.isSuccess) {
+//                        //                print("Response String: \(response.result.value!)")
+//                        ans =  "\(response.result.value!)"
+//                        var ansArray = ans.components(separatedBy: " ")
+//                        self.titleLabel?.text = ansArray[0].components(separatedBy: ":")[0]
+//                        self.percentage?.text = ansArray[1]
+//
+//                        print(ansArray[0].components(separatedBy: ":")[0])
+//                        if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+//                            self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+//                            self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+//                            self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+//                            self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+//                            self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+//                        }
+//
+//                        self.temp.text = "Done"
+//                        print(ans)
+//                    } else {
+//                        ans = "404 API request failed"
+//                    }
+//                }
+////                let tempANS = self.getClassificationFromBackend(path: "classify/\(self.contentURL!)")
+//                print(ans)
+////                self.titleLabel?.text = ans
+//
+//            }
+//            return nil
         }
     }
 
     func getClassificationFromBackend(path: String) -> String
     {
-        let classifyURL = baseURL + path
+        let classifyURL = self.baseURL + path
         print(classifyURL)
         var ans = ""
         Alamofire.request(classifyURL).responseString { response in
@@ -177,4 +325,8 @@ class ServerClassifierViewController: UIViewController {
     }
     */
 
+    }
+    
+
+}
 }

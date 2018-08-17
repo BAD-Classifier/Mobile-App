@@ -10,26 +10,36 @@ import UIKit
 import AVFoundation
 import AWSCognito
 import AWSS3
+import Alamofire
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder: AVAudioRecorder!
-
+    @IBOutlet weak var classificationLabel: UILabel!
+    @IBOutlet weak var percentageLabel: UILabel!
+    
+    
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopRecordingButton: UIButton!
     @IBOutlet weak var recordingButton: UIButton!
     
     let bucketName = "birdcalls"
+    let baseURL = "http://142.93.198.134:5000/"
+    var contentURL: URL!
+    var s3Url: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         stopRecordingButton.isEnabled = false
+        classificationLabel?.text = " "
+        percentageLabel?.text = " "
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,
                                                                 identityPoolId:"us-east-1:7909852c-1c61-4975-92d3-c26a5d5bc184")
         
         let configuration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
         
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        s3Url = AWSS3.default().configuration.endpoint.url
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -88,28 +98,34 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioURL.removeLast(4)
         print(audioURL)
         
-        uploadFile(with: audioURL, type: "wav")
+//        uploadFile(with: audioURL, type: "wav")
+        
+        uploadFileMain(with: audioURL, type: "wav")
+        
+        
+        
+        
     }
     
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
-        } else {
-            print("Finished recording")
-        }
-       
-    }
+//    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+//        if flag {
+//            performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
+//        } else {
+//            print("Finished recording")
+//        }
+//
+//    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "stopRecording" {
-            let playSoundsVC = segue.destination as! PlaySoundsViewController
-            let recordedAudioURL = sender as! URL
-            playSoundsVC.recordedAudioURL = recordedAudioURL   
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////        if segue.identifier == "stopRecording" {
+////            let playSoundsVC = segue.destination as! PlaySoundsViewController
+////            let recordedAudioURL = sender as! URL
+////            playSoundsVC.recordedAudioURL = recordedAudioURL
+////        }
+//    }
     
     func uploadFile(with resource: String, type: String) {
-        let key = "testing.\(type)"
+        let key = "unknownSoundUser1.\(type)"
         print(key)
 //        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
         let localImageUrl = URL(fileURLWithPath: "\(audioRecorder.url)")
@@ -138,6 +154,84 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         return inputString.components(separatedBy: ".")[inputString.components(separatedBy: ".").count - 2]
     }
+    
+    func uploadFileMain(with resource: String, type: String) {
+        recordingLabel.text = "Uploading"
+        recordingButton.isEnabled = false
+        stopRecordingButton.isEnabled = false
+        
+        let key = "testing.\(type)"
+        print(key)
+//        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
+        let localImageUrl = URL(fileURLWithPath: "\(audioRecorder.url)")
+        //        let localImageUrl = URL(fileURLWithPath: "\(audioRecorder.url)")
+        
+        let request = AWSS3TransferManagerUploadRequest()!
+        request.bucket = bucketName
+        request.key = key
+        request.body = localImageUrl
+        request.acl = .publicReadWrite
+        
+        let transferManager = AWSS3TransferManager.default()
+        transferManager.upload(request).continueOnSuccessWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
+            if let error = task.error {
+                print(error)
+            }
+            if task.result != nil {
+                print("Uploaded \(key)")
+//                self.temp.text = "Classifying"
+//                let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
+                self.contentURL = URL(string: "https://s3.amazonaws.com/birdcalls/testing.wav")
+                print("\(self.contentURL!)")
+                //                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
+                self.recordingLabel?.text = "Classifying"
+                
+                var ans = ""
+                Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
+                    print("Success: \(response.result.isSuccess)")
+                    
+                    if (response.result.isSuccess) {
+                        //                print("Response String: \(response.result.value!)")
+                        ans =  "\(response.result.value!)"
+                        var ansArray = ans.components(separatedBy: " ")
+//                        self.titleLabel?.text = ansArray[0].components(separatedBy: ":")[0]
+//                        self.percentage?.text = ansArray[1]
+                        self.classificationLabel?.text = ansArray[0].components(separatedBy: ":")[0]
+                        self.percentageLabel?.text = ansArray[1]
+                        print(ansArray[0].components(separatedBy: ":")[0])
+//                        if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+//                            self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+//                            self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+//                            self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+//                            self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+//                        } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+//                            self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+//                        }
+//
+//                        self.temp.text = "Done"
+                        print(ans)
+                        
+                        
+                        self.recordingButton.isEnabled = true
+                        self.stopRecordingButton.isEnabled = true
+                        self.recordingLabel?.text = "Tap to Record"
+                    } else {
+                        ans = "404 API request failed"
+                    }
+                }
+                //                let tempANS = self.getClassificationFromBackend(path: "classify/\(self.contentURL!)")
+                print(ans)
+                //                self.titleLabel?.text = ans
+                
+            }
+            return nil
+        }
+    }
+    
+    
     
 }
 

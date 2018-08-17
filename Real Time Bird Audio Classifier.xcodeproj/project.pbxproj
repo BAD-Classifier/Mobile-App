@@ -34,6 +34,8 @@
 		846E222B2124E22C009C4685 /* AnthusGeneric.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 846E22272124E22B009C4685 /* AnthusGeneric.jpg */; };
 		846E222C2124E22C009C4685 /* CamaropteraGeneric.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 846E22282124E22C009C4685 /* CamaropteraGeneric.jpg */; };
 		846E222D2124E22C009C4685 /* ChlorophonuesGeneric.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 846E22292124E22C009C4685 /* ChlorophonuesGeneric.jpg */; };
+		84B4CB9921276C9E00B5D4AC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B4CB9821276C9E00B5D4AC /* CoreLocation.framework */; };
+		84B4CB9B21276F0200B5D4AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CB9A21276F0200B5D4AC /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		846E22272124E22B009C4685 /* AnthusGeneric.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AnthusGeneric.jpg; sourceTree = "<group>"; };
 		846E22282124E22C009C4685 /* CamaropteraGeneric.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CamaropteraGeneric.jpg; sourceTree = "<group>"; };
 		846E22292124E22C009C4685 /* ChlorophonuesGeneric.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChlorophonuesGeneric.jpg; sourceTree = "<group>"; };
+		84B4CB9821276C9E00B5D4AC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		84B4CB9A21276F0200B5D4AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Bird_Audio_Classifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B4CB9921276C9E00B5D4AC /* CoreLocation.framework in Frameworks */,
 				067426805D83E98508E6778D /* Pods_Real_Time_Bird_Audio_Classifier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +135,7 @@
 				840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */,
 				846E221021244D01009C4685 /* SoundsViewController.swift */,
 				846E221621245492009C4685 /* ServerClassifierViewController.swift */,
+				84B4CB9A21276F0200B5D4AC /* MapViewController.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 		EDE1C55CAC38D4888CC4EAE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84B4CB9821276C9E00B5D4AC /* CoreLocation.framework */,
 				9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */,
 			);
 			name = Frameworks;
@@ -288,6 +295,7 @@
 				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
 				846E221721245492009C4685 /* ServerClassifierViewController.swift in Sources */,
 				840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */,
+				84B4CB9B21276F0200B5D4AC /* MapViewController.swift in Sources */,
 				8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */,
 				8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */,
 				846E221121244D01009C4685 /* SoundsViewController.swift in Sources */,
@@ -439,6 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BUJVSD6CDW;
 				INFOPLIST_FILE = "Real Time Bird Audio Classifier/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BUJVSD6CDW;
 				INFOPLIST_FILE = "Real Time Bird Audio Classifier/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
