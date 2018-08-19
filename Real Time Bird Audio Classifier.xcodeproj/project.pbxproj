@@ -41,6 +41,7 @@
 		84B4CBA921294BC400B5D4AC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBA821294BC400B5D4AC /* SignInViewController.swift */; };
 		84B4CBAB21294C8E00B5D4AC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */; };
 		84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAC21295F8300B5D4AC /* AlerController.swift */; };
+		84B4CBAF2129702800B5D4AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		84B4CBA821294BC400B5D4AC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		84B4CBAC21295F8300B5D4AC /* AlerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlerController.swift; sourceTree = "<group>"; };
+		84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Bird_Audio_Classifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				84B4CBA821294BC400B5D4AC /* SignInViewController.swift */,
 				84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */,
 				84B4CBAC21295F8300B5D4AC /* AlerController.swift */,
+				84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				84B4CBA321281DC100B5D4AC /* LiveClassificationViewController.swift in Sources */,
 				8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */,
 				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
+				84B4CBAF2129702800B5D4AC /* ProfileViewController.swift in Sources */,
 				846E221721245492009C4685 /* ServerClassifierViewController.swift in Sources */,
 				840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */,
 				84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */,

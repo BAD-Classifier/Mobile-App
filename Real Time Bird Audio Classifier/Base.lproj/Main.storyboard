@@ -309,6 +309,59 @@
             </objects>
             <point key="canvasLocation" x="964" y="1907"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="KCa-ak-Z32">
+            <objects>
+                <viewController id="zKc-Va-AYw" customClass="ProfileViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xAN-6G-Rgo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kH-FK-Nah">
+                                <rect key="frame" x="149" y="102" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9q7-Lo-gap">
+                                <rect key="frame" x="159" y="527" width="57" height="30"/>
+                                <state key="normal" title="Sign out">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="zKc-Va-AYw" eventType="touchUpInside" id="beU-Q0-Sen"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBK-v9-RU4">
+                                <rect key="frame" x="167" y="177" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="anv-KX-uv4" firstAttribute="bottom" secondItem="9q7-Lo-gap" secondAttribute="bottom" constant="61" id="AFE-eg-z6H"/>
+                            <constraint firstItem="2kH-FK-Nah" firstAttribute="centerX" secondItem="jBK-v9-RU4" secondAttribute="centerX" id="KpA-V5-03b"/>
+                            <constraint firstItem="2kH-FK-Nah" firstAttribute="top" secondItem="anv-KX-uv4" secondAttribute="top" constant="82" id="MfA-Rw-JgO"/>
+                            <constraint firstItem="2kH-FK-Nah" firstAttribute="centerX" secondItem="xAN-6G-Rgo" secondAttribute="centerX" id="Wfq-IC-QTa"/>
+                            <constraint firstItem="jBK-v9-RU4" firstAttribute="top" secondItem="2kH-FK-Nah" secondAttribute="bottom" constant="54" id="tEr-6N-oLO"/>
+                            <constraint firstItem="jBK-v9-RU4" firstAttribute="centerX" secondItem="9q7-Lo-gap" secondAttribute="centerX" id="xti-Cd-ZaA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="anv-KX-uv4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="user_group_man_woman" id="eOT-Fc-7PY"/>
+                    <navigationItem key="navigationItem" id="TZc-7Z-Fq1"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="jBK-v9-RU4" id="eXn-XU-7Vz"/>
+                        <outlet property="usernameLabel" destination="2kH-FK-Nah" id="mQq-81-vkF"/>
+                        <segue destination="KSq-Uw-BqN" kind="show" identifier="signOutSegue" id="O7k-kN-Wyq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kmC-3V-lGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-986" y="3206"/>
+        </scene>
         <!--Sign In View Controller-->
         <scene sceneID="iQr-g0-vTC">
             <objects>
@@ -383,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CI3-os-sXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3727.1999999999998" y="-612.14392803598207"/>
+            <point key="canvasLocation" x="-2239" y="-1479"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="pLl-qG-z2G">
@@ -478,7 +531,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5V-KE-5Lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ebk-76-w4h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-5081" y="54"/>
+            <point key="canvasLocation" x="-4630" y="32"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aIL-hm-ukn">
@@ -495,6 +548,7 @@
                         <segue destination="DqW-cg-bbQ" kind="relationship" relationship="viewControllers" id="twu-ha-HKK"/>
                         <segue destination="PQR-Pp-BWg" kind="relationship" relationship="viewControllers" id="GGL-os-4m7"/>
                         <segue destination="3gc-g1-KGA" kind="relationship" relationship="viewControllers" id="TX5-A8-uUg"/>
+                        <segue destination="zKc-Va-AYw" kind="relationship" relationship="viewControllers" id="06F-ik-BJI"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -655,7 +709,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDp-Le-ZSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-711.20000000000005" y="1906.5967016491757"/>
+            <point key="canvasLocation" x="14" y="1890"/>
         </scene>
     </scenes>
     <resources>
@@ -665,8 +719,10 @@
         <image name="genius" width="30" height="30"/>
         <image name="list" width="30" height="30"/>
         <image name="microphone" width="30" height="30"/>
+        <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qix-Fx-9js"/>
+        <segue reference="O75-JE-VKi"/>
+        <segue reference="O7k-kN-Wyq"/>
     </inferredMetricsTieBreakers>
 </document>
