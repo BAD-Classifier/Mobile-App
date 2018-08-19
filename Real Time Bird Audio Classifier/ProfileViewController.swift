@@ -34,7 +34,8 @@ class ProfileViewController: UIViewController {
             let uid = user.uid
             let email = user.email
             let photoURL = user.photoURL
-            usernameLabel?.text = uid
+            let temp = user.refreshToken
+            usernameLabel?.text = temp
             emailLabel?.text = email
             // ...
         }

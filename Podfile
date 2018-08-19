@@ -10,6 +10,8 @@ target 'Real Time Bird Audio Classifier' do
   pod 'Alamofire', '~> 4.7'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  
   
 
   # Pods for Real Time Bird Audio Classifier

@@ -13,6 +13,7 @@ import AWSS3
 import Alamofire
 import MapKit
 import CoreLocation
+import FirebaseStorage
 
 class LiveClassificationViewController: UIViewController, CLLocationManagerDelegate {
     let manager = CLLocationManager()
@@ -23,6 +24,11 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     let baseURL = "http://142.93.198.134:5000/"
     let bucketName = "birdcalls"
     var player = AVAudioPlayer()
+    
+    let baseFirebaseStorageURL = "gs://badclassifier.appspot.com/birdSounds/"
+    let storageRef = Storage.storage().reference()
+    
+//    let data = Data()
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var displayImage: UIImageView!
@@ -37,6 +43,7 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print(unknownURL)
         
         do{
@@ -96,57 +103,119 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         request.body = localImageUrl
         request.acl = .publicReadWrite
         
-        let transferManager = AWSS3TransferManager.default()
-        transferManager.upload(request).continueOnSuccessWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
-            if let error = task.error {
-                print(error)
+        let localFile = URL(string: "\(localImageUrl)")
+        
+//         Create a reference to the file you want to upload
+        let riversRef = storageRef.child("birdSounds/" + self.uuid + ".wav")
+        
+        // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = riversRef.putFile(from: localFile!, metadata: nil) { metadata, error in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
             }
-            if task.result != nil {
-                print("Uploaded \(key)")
-                //                self.temp.text = "Classifying"
-                //                let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
-                self.contentURL = URL(string: "https://s3.amazonaws.com/birdcalls/" + "\(self.uuid)" + ".wav")
-                print("\(self.contentURL!)")
-                //                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
-                
-                var ans = ""
-                Alamofire.request(self.baseURL + "classify/\(self.contentURL!)").responseString { response in
-                    print("Success: \(response.result.isSuccess)")
-                    
-                    if (response.result.isSuccess) {
-                        //                print("Response String: \(response.result.value!)")
-                        ans =  "\(response.result.value!)"
-                        var ansArray = ans.components(separatedBy: " ")
-                                                self.birdNameLable?.text = ansArray[0].components(separatedBy: ":")[0]
-                                                self.birdPercentageLabel?.text = ansArray[1]
-                        print(ansArray[0].components(separatedBy: ":")[0])
-                                                if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
-                                                    self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
-                                                } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
-                                                    self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
-                                                } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
-                                                    self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
-                                                } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
-                                                    self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
-                                                } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
-                                                    self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
-                                                }
-                        
-                        //                        self.temp.text = "Done"
-                        print(ans)
-                        
-                    } else {
-                        ans = "404 API request failed"
-                    }
-                }
-                //                let tempANS = self.getClassificationFromBackend(path: "classify/\(self.contentURL!)")
-                print(ans)
-                //                self.titleLabel?.text = ans
-                
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            // You can also access to download URL after upload.
+            self.storageRef.downloadURL { (url, error) in
+////
+//                guard let downloadURL = url else {
+//                    // Uh-oh, an error occurred!
+//
+//                    return
+//                }
+                print("adfjkskldsh: \(url)")
             }
-            return nil
         }
+        
+        uploadTask.observe(.success) { snapshot in
+            // Upload completed successfully
+            let starsRef = self.storageRef.child("birdSounds/" + self.uuid + ".wav")
+            starsRef.downloadURL { url, error in
+                if let error = error {
+                    // Handle any errors
+                } else {
+                    print("MUTHA \(url!)")
+                    let parameters: Parameters = [
+                        "url": "\(url!)"
+                    ]
+                    
+                    print("\(self.baseURL)classifyPost")
+                    Alamofire.request("\(self.baseURL)classifyPost", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseString { response in
+                        print("Success: \(response.result.isSuccess)")
+                        print("Success: \(response.result.isSuccess)")
+                        var ans = ""
+                        if (response.result.isSuccess) {
+                            //                print("Response String: \(response.result.value!)")
+                            ans =  "\(response.result.value!)"
+                            var ansArray = ans.components(separatedBy: " ")
+                            self.birdNameLable?.text = ansArray[0].components(separatedBy: ":")[0]
+                            self.birdPercentageLabel?.text = ansArray[1]
+                            print(ansArray[0].components(separatedBy: ":")[0])
+                            if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+                                self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+                                self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+                                self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+                                self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+                                self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+                            }
+        
+                            //                        self.temp.text = "Done"
+                            print(ans)
+        
+                        } else {
+                            ans = "404 API request failed"
+                        }
+                    }
+                    
+                    
+                }
+            }
+
+            
+            var ans = ""
+            let requestURL = "\(self.baseFirebaseStorageURL)" + "\(self.uuid)" + ".wav"
+//            print(self.storageRef.)
+            print("request URL:" + self.baseURL + "classify/\(requestURL)")
+//            Alamofire.request(self.baseURL + "classify/\(requestURL)").responseString { response in
+//                print("Success: \(response.result.isSuccess)")
+//
+//                if (response.result.isSuccess) {
+//                    //                print("Response String: \(response.result.value!)")
+//                    ans =  "\(response.result.value!)"
+//                    var ansArray = ans.components(separatedBy: " ")
+//                    self.birdNameLable?.text = ansArray[0].components(separatedBy: ":")[0]
+//                    self.birdPercentageLabel?.text = ansArray[1]
+//                    print(ansArray[0].components(separatedBy: ":")[0])
+//                    if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
+//                        self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
+//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
+//                        self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
+//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
+//                        self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
+//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
+//                        self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
+//                        self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
+//                    }
+//
+//                    //                        self.temp.text = "Done"
+//                    print(ans)
+//
+//                } else {
+//                    ans = "404 API request failed"
+//                }
+//            }
+        }
+    
+        
     }
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
@@ -154,8 +223,8 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
-        print("latitude: \(location.coordinate.latitude)")
-        print("longitude: \(location.coordinate.longitude)")
+//        print("latitude: \(location.coordinate.latitude)")
+//        print("longitude: \(location.coordinate.longitude)")
                 map.setRegion(region, animated: true)
         
                 self.map.showsUserLocation = true
