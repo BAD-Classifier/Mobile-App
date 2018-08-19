@@ -42,6 +42,8 @@
 		84B4CBAB21294C8E00B5D4AC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */; };
 		84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAC21295F8300B5D4AC /* AlerController.swift */; };
 		84B4CBAF2129702800B5D4AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */; };
+		84B4CBB3212A19A900B5D4AC /* classificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBB2212A19A900B5D4AC /* classificationModel.swift */; };
+		84B4CBB5212A249000B5D4AC /* PreviousRecordingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBB4212A249000B5D4AC /* PreviousRecordingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		84B4CBAC21295F8300B5D4AC /* AlerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlerController.swift; sourceTree = "<group>"; };
 		84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		84B4CBB2212A19A900B5D4AC /* classificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classificationModel.swift; sourceTree = "<group>"; };
+		84B4CBB4212A249000B5D4AC /* PreviousRecordingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousRecordingsViewController.swift; sourceTree = "<group>"; };
 		9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Bird_Audio_Classifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,7 @@
 		8434B5102116DB0700F6AECB /* Real Time Bird Audio Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				84B4CBB0212A197D00B5D4AC /* Models */,
 				84B4CB9E212817EF00B5D4AC /* Sounds+Pics */,
 				846E22222124E04B009C4685 /* pika.png */,
 				840F1F42211AC19D00F8E6DD /* it_5.mlmodel */,
@@ -144,6 +149,7 @@
 				84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */,
 				84B4CBAC21295F8300B5D4AC /* AlerController.swift */,
 				84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */,
+				84B4CBB4212A249000B5D4AC /* PreviousRecordingsViewController.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
 			sourceTree = "<group>";
@@ -170,6 +176,14 @@
 				846E22242124E208009C4685 /* CossyphaGeneric.jpeg */,
 			);
 			path = "Sounds+Pics";
+			sourceTree = "<group>";
+		};
+		84B4CBB0212A197D00B5D4AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84B4CBB2212A19A900B5D4AC /* classificationModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		EDE1C55CAC38D4888CC4EAE8 /* Frameworks */ = {
@@ -306,6 +320,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -316,6 +331,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,12 +352,14 @@
 				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
 				84B4CBAF2129702800B5D4AC /* ProfileViewController.swift in Sources */,
 				846E221721245492009C4685 /* ServerClassifierViewController.swift in Sources */,
+				84B4CBB3212A19A900B5D4AC /* classificationModel.swift in Sources */,
 				840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */,
 				84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */,
 				84B4CBAB21294C8E00B5D4AC /* SignUpViewController.swift in Sources */,
 				84B4CB9B21276F0200B5D4AC /* MapViewController.swift in Sources */,
 				8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */,
 				8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */,
+				84B4CBB5212A249000B5D4AC /* PreviousRecordingsViewController.swift in Sources */,
 				846E221121244D01009C4685 /* SoundsViewController.swift in Sources */,
 				8434B5122116DB0700F6AECB /* AppDelegate.swift in Sources */,
 			);

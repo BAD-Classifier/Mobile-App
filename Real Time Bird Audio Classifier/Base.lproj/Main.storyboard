@@ -293,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="2566" y="-1047"/>
         </scene>
-        <!--View Controller-->
+        <!--Previous Recordings View Controller-->
         <scene sceneID="6eN-7N-k5w">
             <objects>
-                <viewController id="MLe-52-fbf" sceneMemberID="viewController">
+                <viewController id="MLe-52-fbf" customClass="PreviousRecordingsViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D9f-vD-WJ9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +309,7 @@
             </objects>
             <point key="canvasLocation" x="964" y="1907"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="KCa-ak-Z32">
             <objects>
                 <viewController id="zKc-Va-AYw" customClass="ProfileViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
@@ -350,7 +350,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="anv-KX-uv4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="user_group_man_woman" id="eOT-Fc-7PY"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user_group_man_woman" id="eOT-Fc-7PY"/>
                     <navigationItem key="navigationItem" id="TZc-7Z-Fq1"/>
                     <connections>
                         <outlet property="emailLabel" destination="jBK-v9-RU4" id="eXn-XU-7Vz"/>

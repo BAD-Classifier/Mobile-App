@@ -8,22 +8,23 @@
 
 import UIKit
 import AVFoundation
-import AWSCognito
-import AWSS3
 import Alamofire
 import MapKit
 import CoreLocation
 import FirebaseStorage
+import FirebaseDatabase
+import FirebaseAuth
 
 class LiveClassificationViewController: UIViewController, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     let uuid = UUID().uuidString
     var unknownURL: URL!
     var contentURL: URL!
-    var s3Url: URL!
     let baseURL = "http://142.93.198.134:5000/"
-    let bucketName = "birdcalls"
     var player = AVAudioPlayer()
+    
+    var ref: DatabaseReference!
+    
     
     let baseFirebaseStorageURL = "gs://badclassifier.appspot.com/birdSounds/"
     let storageRef = Storage.storage().reference()
@@ -52,15 +53,8 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         } catch {
             print(error)
         }
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,
-                                                                identityPoolId:"us-east-1:7909852c-1c61-4975-92d3-c26a5d5bc184")
         
-        let configuration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
-        
-        AWSServiceManager.default().defaultServiceConfiguration = configuration
-        s3Url = AWSS3.default().configuration.endpoint.url
         var stringURL = String(describing: unknownURL)
-        
         stringURL.removeLast(4)
         print(stringURL)
         manager.delegate = self
@@ -68,9 +62,6 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         uploadFileMain(with: stringURL, type: "wav")
-        
-        
-        
         // Do any additional setup after loading the view.
     }
 
@@ -79,36 +70,11 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func uploadFileMain(with resource: String, type: String) {
-        let key = "\(uuid).\(type)"
-        print(key)
-        //        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
+
         let localImageUrl = URL(fileURLWithPath: "\(unknownURL!)")
-        //        let localImageUrl = URL(fileURLWithPath: "\(audioRecorder.url)")
-//        print(localImageUrl)
-        let request = AWSS3TransferManagerUploadRequest()!
-        request.bucket = bucketName
-        request.key = key
-        request.body = localImageUrl
-        request.acl = .publicReadWrite
-        
         let localFile = URL(string: "\(localImageUrl)")
-        
-//         Create a reference to the file you want to upload
         let riversRef = storageRef.child("birdSounds/" + self.uuid + ".wav")
-        
-        // Upload the file to the path "images/rivers.jpg"
         let uploadTask = riversRef.putFile(from: localFile!, metadata: nil) { metadata, error in
             guard let metadata = metadata else {
                 // Uh-oh, an error occurred!
@@ -118,13 +84,6 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
             let size = metadata.size
             // You can also access to download URL after upload.
             self.storageRef.downloadURL { (url, error) in
-////
-//                guard let downloadURL = url else {
-//                    // Uh-oh, an error occurred!
-//
-//                    return
-//                }
-                print("adfjkskldsh: \(url)")
             }
         }
         
@@ -132,7 +91,7 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
             // Upload completed successfully
             let starsRef = self.storageRef.child("birdSounds/" + self.uuid + ".wav")
             starsRef.downloadURL { url, error in
-                if let error = error {
+                if error != nil {
                     // Handle any errors
                 } else {
                     print("MUTHA \(url!)")
@@ -166,53 +125,44 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         
                             //                        self.temp.text = "Done"
                             print(ans)
+                            
+                            self.ref = Database.database().reference().child("posts").childByAutoId()
+                            
+                            let user = Auth.auth().currentUser
+//                            if let user = user {
+//                                // The user's ID, unique to the Firebase project.
+//                                // Do NOT use this value to authenticate with your backend server,
+//                                // if you have one. Use getTokenWithCompletion:completion: instead.
+//                                let uid = user.uid
+//                                let email = user.email
+//                                let photoURL = user.photoURL
+//                                // ...
+//                            }
+                            let postObject = [
+                                "author": [
+                                    "uid": user!.uid,
+                                ],
+                                "fileURL": "\(url!)",
+                                "bird": ansArray[0].components(separatedBy: ":")[0],
+                                "confidence": ansArray[1],
+                            ] as [String:Any]
+                            
+                            self.ref.setValue(postObject, withCompletionBlock: { error, ref in
+                                if error == nil {
+                                    print("Success")
+                                } else {
+                                    print(error)
+                                }
+                            })
+                            
         
                         } else {
                             ans = "404 API request failed"
                         }
                     }
-                    
-                    
                 }
             }
-
-            
-            var ans = ""
-            let requestURL = "\(self.baseFirebaseStorageURL)" + "\(self.uuid)" + ".wav"
-//            print(self.storageRef.)
-            print("request URL:" + self.baseURL + "classify/\(requestURL)")
-//            Alamofire.request(self.baseURL + "classify/\(requestURL)").responseString { response in
-//                print("Success: \(response.result.isSuccess)")
-//
-//                if (response.result.isSuccess) {
-//                    //                print("Response String: \(response.result.value!)")
-//                    ans =  "\(response.result.value!)"
-//                    var ansArray = ans.components(separatedBy: " ")
-//                    self.birdNameLable?.text = ansArray[0].components(separatedBy: ":")[0]
-//                    self.birdPercentageLabel?.text = ansArray[1]
-//                    print(ansArray[0].components(separatedBy: ":")[0])
-//                    if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
-//                        self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
-//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
-//                        self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
-//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
-//                        self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
-//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
-//                        self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
-//                    } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
-//                        self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
-//                    }
-//
-//                    //                        self.temp.text = "Done"
-//                    print(ans)
-//
-//                } else {
-//                    ans = "404 API request failed"
-//                }
-//            }
         }
-    
-        
     }
     
     

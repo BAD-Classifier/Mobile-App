@@ -11,7 +11,7 @@ target 'Real Time Bird Audio Classifier' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
-  
+  pod 'Firebase/Database'
   
 
   # Pods for Real Time Bird Audio Classifier
