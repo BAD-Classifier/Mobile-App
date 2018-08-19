@@ -36,6 +36,11 @@
 		846E222D2124E22C009C4685 /* ChlorophonuesGeneric.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 846E22292124E22C009C4685 /* ChlorophonuesGeneric.jpg */; };
 		84B4CB9921276C9E00B5D4AC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B4CB9821276C9E00B5D4AC /* CoreLocation.framework */; };
 		84B4CB9B21276F0200B5D4AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CB9A21276F0200B5D4AC /* MapViewController.swift */; };
+		84B4CBA321281DC100B5D4AC /* LiveClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBA221281DC100B5D4AC /* LiveClassificationViewController.swift */; };
+		84B4CBA72129490100B5D4AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B4CBA62129490100B5D4AC /* GoogleService-Info.plist */; };
+		84B4CBA921294BC400B5D4AC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBA821294BC400B5D4AC /* SignInViewController.swift */; };
+		84B4CBAB21294C8E00B5D4AC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */; };
+		84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAC21295F8300B5D4AC /* AlerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +58,7 @@
 		8434B51D2116DB0900F6AECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8434B523211824A000F6AECB /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaySoundsViewController+Audio.swift"; sourceTree = "<group>"; };
-		846E220821241167009C4685 /* pika.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pika.png; sourceTree = "<group>"; };
+		846E220821241167009C4685 /* pika.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pika.png; path = ../pika.png; sourceTree = "<group>"; };
 		846E221021244D01009C4685 /* SoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsViewController.swift; sourceTree = "<group>"; };
 		846E221221245261009C4685 /* andropadus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = andropadus.mp3; sourceTree = "<group>"; };
 		846E221321245261009C4685 /* anthus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = anthus.mp3; sourceTree = "<group>"; };
@@ -71,6 +76,14 @@
 		846E22292124E22C009C4685 /* ChlorophonuesGeneric.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ChlorophonuesGeneric.jpg; sourceTree = "<group>"; };
 		84B4CB9821276C9E00B5D4AC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		84B4CB9A21276F0200B5D4AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		84B4CB9F2128180200B5D4AC /* pika.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pika.png; sourceTree = "<group>"; };
+		84B4CBA02128181600B5D4AC /* pika.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pika.png; path = ../../../../../Downloads/pika.png; sourceTree = "<group>"; };
+		84B4CBA12128182000B5D4AC /* pika.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pika.png; path = ../../../../../Downloads/pika.png; sourceTree = "<group>"; };
+		84B4CBA221281DC100B5D4AC /* LiveClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveClassificationViewController.swift; sourceTree = "<group>"; };
+		84B4CBA62129490100B5D4AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84B4CBA821294BC400B5D4AC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		84B4CBAC21295F8300B5D4AC /* AlerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlerController.swift; sourceTree = "<group>"; };
 		9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Bird_Audio_Classifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,21 +121,8 @@
 		8434B5102116DB0700F6AECB /* Real Time Bird Audio Classifier */ = {
 			isa = PBXGroup;
 			children = (
-				846E221221245261009C4685 /* andropadus.mp3 */,
+				84B4CB9E212817EF00B5D4AC /* Sounds+Pics */,
 				846E22222124E04B009C4685 /* pika.png */,
-				846E221321245261009C4685 /* anthus.mp3 */,
-				842E492D2123F8860003A8FE /* local_sound.mp3 */,
-				846E22182124CEE6009C4685 /* Andropadus.wav */,
-				846E221C2124D02E009C4685 /* Camaroptera.wav */,
-				846E221D2124D030009C4685 /* Chlorophoneus.wav */,
-				846E221E2124D031009C4685 /* Cossypha.wav */,
-				846E22192124CEE7009C4685 /* Anthus.wav */,
-				846E220821241167009C4685 /* pika.png */,
-				846E22262124E22A009C4685 /* AndropadusGeneric.jpg */,
-				846E22272124E22B009C4685 /* AnthusGeneric.jpg */,
-				846E22282124E22C009C4685 /* CamaropteraGeneric.jpg */,
-				846E22292124E22C009C4685 /* ChlorophonuesGeneric.jpg */,
-				846E22242124E208009C4685 /* CossyphaGeneric.jpeg */,
 				840F1F42211AC19D00F8E6DD /* it_5.mlmodel */,
 				8434B5112116DB0700F6AECB /* AppDelegate.swift */,
 				8434B5152116DB0700F6AECB /* Main.storyboard */,
@@ -130,14 +130,43 @@
 				8434B5182116DB0900F6AECB /* Assets.xcassets */,
 				8434B51A2116DB0900F6AECB /* LaunchScreen.storyboard */,
 				8434B51D2116DB0900F6AECB /* Info.plist */,
+				84B4CBA62129490100B5D4AC /* GoogleService-Info.plist */,
 				8434B523211824A000F6AECB /* PlaySoundsViewController.swift */,
 				8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */,
 				840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */,
 				846E221021244D01009C4685 /* SoundsViewController.swift */,
 				846E221621245492009C4685 /* ServerClassifierViewController.swift */,
 				84B4CB9A21276F0200B5D4AC /* MapViewController.swift */,
+				84B4CBA221281DC100B5D4AC /* LiveClassificationViewController.swift */,
+				84B4CBA821294BC400B5D4AC /* SignInViewController.swift */,
+				84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */,
+				84B4CBAC21295F8300B5D4AC /* AlerController.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
+			sourceTree = "<group>";
+		};
+		84B4CB9E212817EF00B5D4AC /* Sounds+Pics */ = {
+			isa = PBXGroup;
+			children = (
+				84B4CBA02128181600B5D4AC /* pika.png */,
+				84B4CBA12128182000B5D4AC /* pika.png */,
+				846E221221245261009C4685 /* andropadus.mp3 */,
+				846E22192124CEE7009C4685 /* Anthus.wav */,
+				84B4CB9F2128180200B5D4AC /* pika.png */,
+				846E220821241167009C4685 /* pika.png */,
+				846E221321245261009C4685 /* anthus.mp3 */,
+				842E492D2123F8860003A8FE /* local_sound.mp3 */,
+				846E22182124CEE6009C4685 /* Andropadus.wav */,
+				846E221C2124D02E009C4685 /* Camaroptera.wav */,
+				846E221D2124D030009C4685 /* Chlorophoneus.wav */,
+				846E221E2124D031009C4685 /* Cossypha.wav */,
+				846E22262124E22A009C4685 /* AndropadusGeneric.jpg */,
+				846E22272124E22B009C4685 /* AnthusGeneric.jpg */,
+				846E22282124E22C009C4685 /* CamaropteraGeneric.jpg */,
+				846E22292124E22C009C4685 /* ChlorophonuesGeneric.jpg */,
+				846E22242124E208009C4685 /* CossyphaGeneric.jpeg */,
+			);
+			path = "Sounds+Pics";
 			sourceTree = "<group>";
 		};
 		EDE1C55CAC38D4888CC4EAE8 /* Frameworks */ = {
@@ -229,6 +258,7 @@
 				846E22202124D031009C4685 /* Chlorophoneus.wav in Resources */,
 				846E222D2124E22C009C4685 /* ChlorophonuesGeneric.jpg in Resources */,
 				846E22212124D031009C4685 /* Cossypha.wav in Resources */,
+				84B4CBA72129490100B5D4AC /* GoogleService-Info.plist in Resources */,
 				846E221A2124CEE8009C4685 /* Andropadus.wav in Resources */,
 				846E222C2124E22C009C4685 /* CamaropteraGeneric.jpg in Resources */,
 				8434B5192116DB0900F6AECB /* Assets.xcassets in Resources */,
@@ -271,6 +301,9 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -278,6 +311,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -291,10 +327,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B4CBA921294BC400B5D4AC /* SignInViewController.swift in Sources */,
+				84B4CBA321281DC100B5D4AC /* LiveClassificationViewController.swift in Sources */,
 				8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */,
 				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
 				846E221721245492009C4685 /* ServerClassifierViewController.swift in Sources */,
 				840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */,
+				84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */,
+				84B4CBAB21294C8E00B5D4AC /* SignUpViewController.swift in Sources */,
 				84B4CB9B21276F0200B5D4AC /* MapViewController.swift in Sources */,
 				8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */,
 				8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */,

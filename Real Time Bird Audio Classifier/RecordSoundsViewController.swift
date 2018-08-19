@@ -11,6 +11,7 @@ import AVFoundation
 import AWSCognito
 import AWSS3
 import Alamofire
+import Firebase
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
@@ -30,6 +31,18 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let user = Auth.auth().currentUser
+        if let user = user {
+            // The user's ID, unique to the Firebase project.
+            // Do NOT use this value to authenticate with your backend server,
+            // if you have one. Use getTokenWithCompletion:completion: instead.
+            let uid = user.uid
+            let email = user.email
+            let photoURL = user.photoURL
+            // ...
+        }
+        print("\(user?.uid!)")
+        
         stopRecordingButton.isEnabled = false
         classificationLabel?.text = " "
         percentageLabel?.text = " "
@@ -100,30 +113,30 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
 //        uploadFile(with: audioURL, type: "wav")
         
-        uploadFileMain(with: audioURL, type: "wav")
+//        uploadFileMain(with: audioURL, type: "wav")
         
         
         
         
     }
-    
+//
 //    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
 //        if flag {
-//            performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
+//            performSegue(withIdentifier: "identifySegue", sender: audioRecorder.url)
 //        } else {
 //            print("Finished recording")
 //        }
 //
 //    }
-    
+//
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////        if segue.identifier == "stopRecording" {
-////            let playSoundsVC = segue.destination as! PlaySoundsViewController
-////            let recordedAudioURL = sender as! URL
-////            playSoundsVC.recordedAudioURL = recordedAudioURL
-////        }
+//        if segue.identifier == "stopRecording" {
+//            let playSoundsVC = segue.destination as! PlaySoundsViewController
+//            let recordedAudioURL = sender as! URL
+//            playSoundsVC.recordedAudioURL = recordedAudioURL
+//        }
 //    }
-    
+//
     func uploadFile(with resource: String, type: String) {
         let key = "unknownSoundUser1.\(type)"
         print(key)
@@ -160,7 +173,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordingButton.isEnabled = false
         stopRecordingButton.isEnabled = false
         
-        let key = "testing.\(type)"
+        let key = "testing2.\(type)"
         print(key)
 //        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
         let localImageUrl = URL(fileURLWithPath: "\(audioRecorder.url)")
@@ -181,7 +194,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
                 print("Uploaded \(key)")
 //                self.temp.text = "Classifying"
 //                let res = self.s3Url.appendingPathComponent(self.bucketName).appendingPathComponent(key)
-                self.contentURL = URL(string: "https://s3.amazonaws.com/birdcalls/testing.wav")
+                self.contentURL = URL(string: "https://s3.amazonaws.com/birdcalls/testing2.wav")
                 print("\(self.contentURL!)")
                 //                print(self.getClassificationFromBackend(path: "classify/\(self.contentURL!)"))
                 self.recordingLabel?.text = "Classifying"
@@ -232,6 +245,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let receiverVC = segue.destination as! LiveClassificationViewController
+        receiverVC.unknownURL = audioRecorder.url
+    }
     
 }
 

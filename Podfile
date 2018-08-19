@@ -8,6 +8,10 @@ target 'Real Time Bird Audio Classifier' do
   pod 'AWSS3', '~> 2.6.13'   # For file transfers
   pod 'AWSCognito', '~> 2.6.13'   #For data sync
   pod 'Alamofire', '~> 4.7'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  
+
   # Pods for Real Time Bird Audio Classifier
 
 end
