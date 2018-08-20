@@ -647,41 +647,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-yc-Q0W">
-                                <rect key="frame" x="239" y="225" width="36" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Stop"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0e-qn-DcT">
+                                <rect key="frame" x="16" y="557" width="343" height="33"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="stopSound:" destination="0Kd-Ax-agh" eventType="touchUpInside" id="wpY-So-HqW"/>
+                                    <action selector="stopSound:" destination="EOU-Jq-xpv" eventType="touchUpInside" id="NCN-ec-CWW"/>
+                                    <action selector="stopSounds:" destination="0Kd-Ax-agh" eventType="touchUpInside" id="QgB-du-TdZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPe-1c-EGw">
-                                <rect key="frame" x="100" y="225" width="32" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playSound:" destination="0Kd-Ax-agh" eventType="touchUpInside" id="yS4-b3-5rm"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FaZ-fq-6P3">
-                                <rect key="frame" x="0.0" y="441" width="375" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FWv-qK-q1Q">
-                                <rect key="frame" x="0.0" y="277" width="375" height="169"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t4-2K-5Yd">
-                                <rect key="frame" x="16" y="88" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t13-wI-52i">
+                                <rect key="frame" x="16" y="77" width="343" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tEj-S1-97m">
+                                <rect key="frame" x="16" y="164" width="343" height="174"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="174" id="SO1-22-gAp"/>
+                                </constraints>
+                            </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iV3-xg-f0v">
+                                <rect key="frame" x="16" y="380" width="343" height="105"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxN-IN-WxS">
+                                <rect key="frame" x="16" y="506" width="343" height="33"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playSound:" destination="EOU-Jq-xpv" eventType="touchUpInside" id="dAs-ST-jF9"/>
+                                    <action selector="playSound:" destination="0Kd-Ax-agh" eventType="touchUpInside" id="wj1-A3-zGv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tEj-S1-97m" firstAttribute="trailing" secondItem="iV3-xg-f0v" secondAttribute="trailing" id="1RT-1w-mw2"/>
+                            <constraint firstItem="t13-wI-52i" firstAttribute="leading" secondItem="YXa-qC-GOa" secondAttribute="leadingMargin" id="2Lh-U2-b8M"/>
+                            <constraint firstItem="t13-wI-52i" firstAttribute="leading" secondItem="tEj-S1-97m" secondAttribute="leading" id="9WK-hT-P4c"/>
+                            <constraint firstItem="iV3-xg-f0v" firstAttribute="trailing" secondItem="BxN-IN-WxS" secondAttribute="trailing" id="A8O-4j-a55"/>
+                            <constraint firstItem="t13-wI-52i" firstAttribute="top" secondItem="TLj-uT-ouk" secondAttribute="top" constant="13" id="MlZ-dw-rot"/>
+                            <constraint firstItem="iV3-xg-f0v" firstAttribute="leading" secondItem="BxN-IN-WxS" secondAttribute="leading" id="PKj-M3-bOd"/>
+                            <constraint firstItem="BxN-IN-WxS" firstAttribute="leading" secondItem="K0e-qn-DcT" secondAttribute="leading" id="Qr5-aU-QDq"/>
+                            <constraint firstItem="TLj-uT-ouk" firstAttribute="bottom" secondItem="K0e-qn-DcT" secondAttribute="bottom" constant="28" id="RAb-ZA-MuE"/>
+                            <constraint firstItem="BxN-IN-WxS" firstAttribute="top" secondItem="iV3-xg-f0v" secondAttribute="bottom" constant="21" id="RIp-Up-myG"/>
+                            <constraint firstItem="tEj-S1-97m" firstAttribute="top" secondItem="t13-wI-52i" secondAttribute="bottom" constant="64" id="Rwf-zF-Dzs"/>
+                            <constraint firstItem="t13-wI-52i" firstAttribute="trailing" secondItem="tEj-S1-97m" secondAttribute="trailing" id="WTD-Th-cnR"/>
+                            <constraint firstItem="tEj-S1-97m" firstAttribute="leading" secondItem="iV3-xg-f0v" secondAttribute="leading" id="cpI-dP-j7z"/>
+                            <constraint firstItem="K0e-qn-DcT" firstAttribute="top" secondItem="BxN-IN-WxS" secondAttribute="bottom" constant="18" id="eLZ-6c-OVh"/>
+                            <constraint firstItem="BxN-IN-WxS" firstAttribute="trailing" secondItem="K0e-qn-DcT" secondAttribute="trailing" id="rTz-Xb-B5j"/>
+                            <constraint firstItem="iV3-xg-f0v" firstAttribute="top" secondItem="tEj-S1-97m" secondAttribute="bottom" constant="42" id="sb1-2k-57S"/>
+                            <constraint firstItem="t13-wI-52i" firstAttribute="trailing" secondItem="YXa-qC-GOa" secondAttribute="trailingMargin" id="sdJ-Di-Z6t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TLj-uT-ouk"/>
                     </view>
                     <navigationItem key="navigationItem" title="Classification" id="d07-WD-MfO">
@@ -692,11 +716,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="birdNameLable" destination="7t4-2K-5Yd" id="aE4-PF-Gvb"/>
-                        <outlet property="displayImage" destination="FWv-qK-q1Q" id="sRY-sa-gsi"/>
-                        <outlet property="imageView" destination="FWv-qK-q1Q" id="wpg-Tc-BTR"/>
-                        <outlet property="map" destination="FaZ-fq-6P3" id="1a7-3L-rjj"/>
+                        <outlet property="birdNameLabel" destination="t13-wI-52i" id="2jz-79-Pdo"/>
+                        <outlet property="displayImage" destination="tEj-S1-97m" id="KRp-Ft-fJN"/>
+                        <outlet property="map" destination="iV3-xg-f0v" id="GgW-xW-so6"/>
+                        <outlet property="playbtn" destination="BxN-IN-WxS" id="m5d-p5-dxh"/>
                         <outlet property="saveButton" destination="IQQ-om-22w" id="Xa6-y3-UJg"/>
+                        <outlet property="stopSound" destination="K0e-qn-DcT" id="GxM-s8-BSa"/>
+                        <outlet property="stopbtn" destination="K0e-qn-DcT" id="0fz-uk-hOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKE-Je-Hyq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -24,16 +24,17 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     var player = AVAudioPlayer()
     let newPin = MKPointAnnotation()
     var ref: DatabaseReference!
-    
-    @IBOutlet weak var imageView: UIImageView!
     var dbUserID = ""
     var dbFileURL = ""
     var dbBird = ""
     var dbConfidence = ""
     var dbLatitude = ""
     var dbLongitude = ""
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var playbtn: UIButton!
+    @IBOutlet weak var stopbtn: UIButton!
+    
 
     @IBAction func saveFile(_ sender: Any) {
         ref = Database.database().reference().child("posts").childByAutoId()
@@ -63,22 +64,36 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     
 //    let data = Data()
     
+
     @IBOutlet weak var map: MKMapView!
+    
     @IBOutlet weak var displayImage: UIImageView!
-    @IBOutlet weak var birdNameLable: UILabel!
-    @IBOutlet weak var birdPercentageLabel: UILabel!
+    
+    @IBOutlet weak var birdNameLabel: UILabel!
+    
+    //    @IBOutlet weak var displayImage: UIImageView!
+//    @IBOutlet weak var birdNameLable: UILabel!
+//    @IBOutlet weak var birdPercentageLabel: UILabel!
     
     @IBAction func playSound(_ sender: Any) {
         player.play()
     }
-    @IBAction func stopSound(_ sender: Any) {
+    @IBOutlet weak var stopSound: UIButton!
+    
+    @IBAction func stopSounds(_ sender: Any) {
         player.stop()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playbtn.layer.cornerRadius = 10
+        playbtn.clipsToBounds = true
+        
+        stopbtn.layer.cornerRadius = 10
+        stopbtn.clipsToBounds = true
         saveButton.isEnabled = false
         print(unknownURL)
-        self.birdNameLable?.text = ""
+        self.birdNameLabel?.text = ""
         do{
             player = try AVAudioPlayer(contentsOf: unknownURL!)
             player.prepareToPlay()
@@ -140,7 +155,7 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
                             //                print("Response String: \(response.result.value!)")
                             ans =  "\(response.result.value!)"
                             var ansArray = ans.components(separatedBy: " ")
-                            self.birdNameLable?.text = self.getRealName(genus: ansArray[0].components(separatedBy: ":")[0]) + " " + ansArray[1]
+                            self.birdNameLabel?.text = self.getRealName(genus: ansArray[0].components(separatedBy: ":")[0]) + " " + ansArray[1]
                             self.setPic(genus: ansArray[0].components(separatedBy: ":")[0])
                             
                             
@@ -214,25 +229,25 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     func setPic(genus: String){
         switch genus {
         case "Andropadus":
-            self.imageView?.image = UIImage(named: "AndropadusGeneric.jpg")
+            self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
         case "Anthus":
-            self.imageView?.image = UIImage(named: "AnthusGeneric.jpg")
+            self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
         case "Camaroptera":
-            self.imageView?.image = UIImage(named: "CamaropteraGeneric.jpg")
+            self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
         case "Cercotrichas":
-            self.imageView?.image = UIImage(named: "Cercotrichas.jpg")
+            self.displayImage?.image = UIImage(named: "Cercotrichas.jpg")
         case "Chlorophoneus":
-            self.imageView?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+            self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
         case "Cossypha":
-            self.imageView?.image = UIImage(named: "CossyphaGeneric.jpeg")
+            self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
         case "Laniarius":
-            self.imageView?.image = UIImage(named: "Laniarius.jpg")
+            self.displayImage?.image = UIImage(named: "Laniarius.jpg")
         case "Prinia":
-            self.imageView?.image = UIImage(named: "Prinia.jpg")
+            self.displayImage?.image = UIImage(named: "Prinia.jpg")
         case "Sylvia":
-            self.imageView?.image = UIImage(named: "Sylvia.jpg")
+            self.displayImage?.image = UIImage(named: "Sylvia.jpg")
         case "Telophorus":
-            self.imageView?.image = UIImage(named: "Telophorus.jpg")
+            self.displayImage?.image = UIImage(named: "Telophorus.jpg")
         default:
             print("NO MATCH")
         }
