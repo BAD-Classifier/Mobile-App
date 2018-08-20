@@ -10,16 +10,14 @@ import Foundation
 
 class classificationModel {
     var uid:String
-    var username:String
-    var soundURL:URL
+    var soundURL:String
     var bird:String
-    var confidence:Double
+    var confidence:String
     var latitude:Double
     var longitude:Double
     
-    init(uid:String, username:String, soundURL:URL, bird:String, confidence: Double, latitude: Double, longitude:Double) {
+    init(uid:String, soundURL:String, bird:String, confidence: String, latitude: Double, longitude:Double) {
         self.uid = uid
-        self.username = username
         self.soundURL = soundURL
         self.bird = bird
         self.confidence = confidence

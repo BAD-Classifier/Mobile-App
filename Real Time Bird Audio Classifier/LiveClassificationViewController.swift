@@ -139,9 +139,7 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
 //                                // ...
 //                            }
                             let postObject = [
-                                "author": [
-                                    "uid": user!.uid,
-                                ],
+                                "uid": user!.uid,
                                 "fileURL": "\(url!)",
                                 "bird": ansArray[0].components(separatedBy: ":")[0],
                                 "confidence": ansArray[1],

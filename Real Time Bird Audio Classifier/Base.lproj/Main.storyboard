@@ -300,14 +300,49 @@
                     <view key="view" contentMode="scaleToFill" id="D9f-vD-WJ9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NE9-Ph-lL1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="previousCell" id="reu-HC-Qtj">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reu-HC-Qtj" id="VIH-yH-VsY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MLe-52-fbf" id="Jeu-Us-tmy"/>
+                                    <outlet property="delegate" destination="MLe-52-fbf" id="VdR-fT-RBT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NE9-Ph-lL1" firstAttribute="top" secondItem="CUz-dz-c32" secondAttribute="top" id="NVc-78-u9P"/>
+                            <constraint firstItem="NE9-Ph-lL1" firstAttribute="leading" secondItem="CUz-dz-c32" secondAttribute="leading" id="fS5-Iu-lOd"/>
+                            <constraint firstItem="NE9-Ph-lL1" firstAttribute="bottom" secondItem="CUz-dz-c32" secondAttribute="bottom" id="tRM-bg-g9q"/>
+                            <constraint firstItem="NE9-Ph-lL1" firstAttribute="trailing" secondItem="CUz-dz-c32" secondAttribute="trailing" id="xWj-TY-N1N"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CUz-dz-c32"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cJS-Su-FSF"/>
+                    <navigationItem key="navigationItem" id="cJS-Su-FSF">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="KUh-lZ-kUs">
+                            <connections>
+                                <action selector="refreshTable:" destination="MLe-52-fbf" id="tqY-Fd-Wdh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="NE9-Ph-lL1" id="Zfq-lF-eOM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8O-nh-doV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="1907"/>
+            <point key="canvasLocation" x="964" y="1890"/>
         </scene>
         <!--Profile-->
         <scene sceneID="KCa-ak-Z32">
