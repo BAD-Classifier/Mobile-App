@@ -16,8 +16,6 @@
 		8434B5172116DB0700F6AECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434B5152116DB0700F6AECB /* Main.storyboard */; };
 		8434B5192116DB0900F6AECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434B5182116DB0900F6AECB /* Assets.xcassets */; };
 		8434B51C2116DB0900F6AECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434B51A2116DB0900F6AECB /* LaunchScreen.storyboard */; };
-		8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B523211824A000F6AECB /* PlaySoundsViewController.swift */; };
-		8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */; };
 		846E220921241168009C4685 /* pika.png in Resources */ = {isa = PBXBuildFile; fileRef = 846E220821241167009C4685 /* pika.png */; };
 		846E221121244D01009C4685 /* SoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E221021244D01009C4685 /* SoundsViewController.swift */; };
 		846E221421245262009C4685 /* andropadus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846E221221245261009C4685 /* andropadus.mp3 */; };
@@ -44,6 +42,7 @@
 		84B4CBAF2129702800B5D4AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */; };
 		84B4CBB3212A19A900B5D4AC /* classificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBB2212A19A900B5D4AC /* classificationModel.swift */; };
 		84B4CBB5212A249000B5D4AC /* PreviousRecordingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBB4212A249000B5D4AC /* PreviousRecordingsViewController.swift */; };
+		84B4CBB7212AC18700B5D4AC /* PreviousPlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4CBB6212AC18700B5D4AC /* PreviousPlaybackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,8 +58,6 @@
 		8434B5182116DB0900F6AECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8434B51B2116DB0900F6AECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8434B51D2116DB0900F6AECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8434B523211824A000F6AECB /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
-		8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaySoundsViewController+Audio.swift"; sourceTree = "<group>"; };
 		846E220821241167009C4685 /* pika.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pika.png; path = ../pika.png; sourceTree = "<group>"; };
 		846E221021244D01009C4685 /* SoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsViewController.swift; sourceTree = "<group>"; };
 		846E221221245261009C4685 /* andropadus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = andropadus.mp3; sourceTree = "<group>"; };
@@ -90,6 +87,7 @@
 		84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		84B4CBB2212A19A900B5D4AC /* classificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classificationModel.swift; sourceTree = "<group>"; };
 		84B4CBB4212A249000B5D4AC /* PreviousRecordingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousRecordingsViewController.swift; sourceTree = "<group>"; };
+		84B4CBB6212AC18700B5D4AC /* PreviousPlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousPlaybackViewController.swift; sourceTree = "<group>"; };
 		9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Bird_Audio_Classifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,29 +125,24 @@
 		8434B5102116DB0700F6AECB /* Real Time Bird Audio Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				84B4CBBD212B04BF00B5D4AC /* Auth */,
+				84B4CBBC212B046200B5D4AC /* Profile */,
+				84B4CBBB212B045D00B5D4AC /* ML */,
+				84B4CBBA212B045700B5D4AC /* Demo */,
+				84B4CBB9212B044D00B5D4AC /* Record */,
+				84B4CBB8212B005000B5D4AC /* Previous */,
 				84B4CBB0212A197D00B5D4AC /* Models */,
 				84B4CB9E212817EF00B5D4AC /* Sounds+Pics */,
 				846E22222124E04B009C4685 /* pika.png */,
 				840F1F42211AC19D00F8E6DD /* it_5.mlmodel */,
 				8434B5112116DB0700F6AECB /* AppDelegate.swift */,
 				8434B5152116DB0700F6AECB /* Main.storyboard */,
-				8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */,
 				8434B5182116DB0900F6AECB /* Assets.xcassets */,
 				8434B51A2116DB0900F6AECB /* LaunchScreen.storyboard */,
 				8434B51D2116DB0900F6AECB /* Info.plist */,
 				84B4CBA62129490100B5D4AC /* GoogleService-Info.plist */,
-				8434B523211824A000F6AECB /* PlaySoundsViewController.swift */,
-				8434B5252118683E00F6AECB /* PlaySoundsViewController+Audio.swift */,
-				840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */,
-				846E221021244D01009C4685 /* SoundsViewController.swift */,
-				846E221621245492009C4685 /* ServerClassifierViewController.swift */,
 				84B4CB9A21276F0200B5D4AC /* MapViewController.swift */,
-				84B4CBA221281DC100B5D4AC /* LiveClassificationViewController.swift */,
-				84B4CBA821294BC400B5D4AC /* SignInViewController.swift */,
-				84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */,
 				84B4CBAC21295F8300B5D4AC /* AlerController.swift */,
-				84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */,
-				84B4CBB4212A249000B5D4AC /* PreviousRecordingsViewController.swift */,
 			);
 			path = "Real Time Bird Audio Classifier";
 			sourceTree = "<group>";
@@ -184,6 +177,58 @@
 				84B4CBB2212A19A900B5D4AC /* classificationModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		84B4CBB8212B005000B5D4AC /* Previous */ = {
+			isa = PBXGroup;
+			children = (
+				84B4CBB4212A249000B5D4AC /* PreviousRecordingsViewController.swift */,
+				84B4CBB6212AC18700B5D4AC /* PreviousPlaybackViewController.swift */,
+			);
+			path = Previous;
+			sourceTree = "<group>";
+		};
+		84B4CBB9212B044D00B5D4AC /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				8434B5132116DB0700F6AECB /* RecordSoundsViewController.swift */,
+				84B4CBA221281DC100B5D4AC /* LiveClassificationViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		84B4CBBA212B045700B5D4AC /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				846E221021244D01009C4685 /* SoundsViewController.swift */,
+				846E221621245492009C4685 /* ServerClassifierViewController.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		84B4CBBB212B045D00B5D4AC /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
+		84B4CBBC212B046200B5D4AC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				84B4CBAE2129702800B5D4AC /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		84B4CBBD212B04BF00B5D4AC /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				84B4CBA821294BC400B5D4AC /* SignInViewController.swift */,
+				84B4CBAA21294C8E00B5D4AC /* SignUpViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		EDE1C55CAC38D4888CC4EAE8 /* Frameworks */ = {
@@ -348,6 +393,7 @@
 			files = (
 				84B4CBA921294BC400B5D4AC /* SignInViewController.swift in Sources */,
 				84B4CBA321281DC100B5D4AC /* LiveClassificationViewController.swift in Sources */,
+				84B4CBB7212AC18700B5D4AC /* PreviousPlaybackViewController.swift in Sources */,
 				8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */,
 				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
 				84B4CBAF2129702800B5D4AC /* ProfileViewController.swift in Sources */,
@@ -357,8 +403,6 @@
 				84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */,
 				84B4CBAB21294C8E00B5D4AC /* SignUpViewController.swift in Sources */,
 				84B4CB9B21276F0200B5D4AC /* MapViewController.swift in Sources */,
-				8434B5262118683E00F6AECB /* PlaySoundsViewController+Audio.swift in Sources */,
-				8434B524211824A000F6AECB /* PlaySoundsViewController.swift in Sources */,
 				84B4CBB5212A249000B5D4AC /* PreviousRecordingsViewController.swift in Sources */,
 				846E221121244D01009C4685 /* SoundsViewController.swift in Sources */,
 				8434B5122116DB0700F6AECB /* AppDelegate.swift in Sources */,

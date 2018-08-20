@@ -8,12 +8,16 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseDatabase
+
+var posts = [classificationModel]()
+var postsindex = 0
 
 class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var posts = [classificationModel]()
+
     var tests = ["fuck", "you"]
     var ref: DatabaseReference!
     
@@ -35,7 +39,7 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
                 //                print("res: \(String(describing: res!["bird"]))")
                 if ("\(String(describing: res!["bird"]))" == user!.uid){
                     let tempPost = classificationModel(uid: "\(String(describing: res!["bird"]))", soundURL: "\(String(describing: res!["fileURL"]))", bird: "\(String(describing: res!["bird"]))", confidence: "\(String(describing: res!["confidence"]))", latitude: 0, longitude: 0)
-                    self.posts.append(tempPost)
+                   posts.append(tempPost)
                     self.tableView.reloadData()
                 }
             }
@@ -80,10 +84,10 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
                     let tempPost = classificationModel(uid: "\(res!["bird"]!)", soundURL: "\(res!["fileURL"]!)", bird:  "\(res!["bird"]!)", confidence:  "\(res!["confidence"]!)", latitude: 0, longitude: 0)
                     print(tempPost.bird)
                     print(tempPost.confidence)
-                    self.posts.append(tempPost)
+                    posts.append(tempPost)
                     self.tests.append(tempPost.bird)
                     self.tableView.reloadData()
-                    for temp in self.posts {
+                    for temp in posts {
                         print(temp.bird)
                         print(temp.confidence)
                     }
@@ -112,7 +116,14 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
 //        print("\(posts[indexPath.row].bird)")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        postsindex = indexPath.row
+        performSegue(withIdentifier: "segue2", sender: self)
+    }
 
+    
+    
     /*
     // MARK: - Navigation
 

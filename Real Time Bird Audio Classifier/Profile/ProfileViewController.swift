@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var usernameLabel: UILabel!
@@ -36,7 +38,7 @@ class ProfileViewController: UIViewController {
             let photoURL = user.photoURL
             let temp = user.refreshToken
             usernameLabel?.text = temp
-            emailLabel?.text = email
+            emailLabel?.text = uid
             // ...
         }
         // Do any additional setup after loading the view.

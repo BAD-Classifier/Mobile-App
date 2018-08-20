@@ -338,11 +338,84 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NE9-Ph-lL1" id="Zfq-lF-eOM"/>
+                        <segue destination="EOU-Jq-xpv" kind="show" identifier="segue2" id="NbQ-2h-OYL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8O-nh-doV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="964" y="1890"/>
+        </scene>
+        <!--Previous Playback View Controller-->
+        <scene sceneID="gmc-MX-q13">
+            <objects>
+                <viewController id="EOU-Jq-xpv" customClass="PreviousPlaybackViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="53T-2a-Th1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w40-mm-tZw">
+                                <rect key="frame" x="234" y="124" width="32" height="30"/>
+                                <state key="normal" title="Stop"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usz-2O-Lr4">
+                                <rect key="frame" x="94" y="227" width="9" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lp-Lb-rTE">
+                                <rect key="frame" x="246" y="227" width="9" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AHn-js-XL4">
+                                <rect key="frame" x="0.0" y="315" width="375" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="72s-Ot-xWE"/>
+                                </constraints>
+                            </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="twP-ET-0h8">
+                                <rect key="frame" x="0.0" y="458" width="375" height="160"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbc-BE-CjK">
+                                <rect key="frame" x="83" y="123" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playSound:" destination="EOU-Jq-xpv" eventType="touchUpInside" id="c1a-5c-edp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="usz-2O-Lr4" firstAttribute="baseline" secondItem="1Lp-Lb-rTE" secondAttribute="baseline" id="2PF-FZ-IYA"/>
+                            <constraint firstItem="BdM-dq-bWM" firstAttribute="trailing" secondItem="w40-mm-tZw" secondAttribute="trailing" constant="109" id="33j-B5-WPT"/>
+                            <constraint firstItem="bbc-BE-CjK" firstAttribute="baseline" secondItem="w40-mm-tZw" secondAttribute="baseline" id="Ahf-6b-6m1"/>
+                            <constraint firstItem="AHn-js-XL4" firstAttribute="trailing" secondItem="twP-ET-0h8" secondAttribute="trailing" id="FLN-La-ofc"/>
+                            <constraint firstItem="bbc-BE-CjK" firstAttribute="leading" secondItem="BdM-dq-bWM" secondAttribute="leading" constant="83" id="FdK-hM-eYq"/>
+                            <constraint firstItem="twP-ET-0h8" firstAttribute="top" secondItem="AHn-js-XL4" secondAttribute="bottom" constant="1" id="JY6-RY-4QB"/>
+                            <constraint firstItem="w40-mm-tZw" firstAttribute="centerX" secondItem="1Lp-Lb-rTE" secondAttribute="centerX" id="L7r-3X-Qg0"/>
+                            <constraint firstItem="AHn-js-XL4" firstAttribute="top" secondItem="usz-2O-Lr4" secondAttribute="bottom" constant="67" id="MxJ-v4-KwI"/>
+                            <constraint firstItem="bbc-BE-CjK" firstAttribute="centerX" secondItem="usz-2O-Lr4" secondAttribute="centerX" id="Yy6-rE-Dhd"/>
+                            <constraint firstItem="AHn-js-XL4" firstAttribute="leading" secondItem="twP-ET-0h8" secondAttribute="leading" id="aPg-NH-KYQ"/>
+                            <constraint firstItem="usz-2O-Lr4" firstAttribute="top" secondItem="bbc-BE-CjK" secondAttribute="bottom" constant="73" id="bmz-zr-5iQ"/>
+                            <constraint firstItem="AHn-js-XL4" firstAttribute="leading" secondItem="53T-2a-Th1" secondAttribute="leading" id="dpI-LW-89A"/>
+                            <constraint firstItem="twP-ET-0h8" firstAttribute="bottom" secondItem="BdM-dq-bWM" secondAttribute="bottom" id="kNt-fh-zXB"/>
+                            <constraint firstAttribute="trailing" secondItem="AHn-js-XL4" secondAttribute="trailing" id="oiF-9R-9xZ"/>
+                            <constraint firstItem="bbc-BE-CjK" firstAttribute="top" secondItem="BdM-dq-bWM" secondAttribute="top" constant="60" id="rsZ-iF-x2t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BdM-dq-bWM"/>
+                    </view>
+                    <connections>
+                        <outlet property="birdName" destination="usz-2O-Lr4" id="sLn-ba-7hu"/>
+                        <outlet property="percentageLabel" destination="1Lp-Lb-rTE" id="MeJ-Pr-Fdm"/>
+                        <outlet property="playButton" destination="bbc-BE-CjK" id="5FY-ja-os7"/>
+                        <outlet property="stopButton" destination="w40-mm-tZw" id="aiV-WB-gPE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7A-yc-5a5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="1889.5052473763119"/>
         </scene>
         <!--Profile-->
         <scene sceneID="KCa-ak-Z32">

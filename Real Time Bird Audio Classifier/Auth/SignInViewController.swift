@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class SignInViewController: UIViewController, UIApplicationDelegate {
     @IBOutlet weak var emailTF: UITextField!
