@@ -22,10 +22,42 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     var contentURL: URL!
     let baseURL = "http://142.93.198.134:5000/"
     var player = AVAudioPlayer()
-    
+    let newPin = MKPointAnnotation()
     var ref: DatabaseReference!
     
+    @IBOutlet weak var imageView: UIImageView!
+    var dbUserID = ""
+    var dbFileURL = ""
+    var dbBird = ""
+    var dbConfidence = ""
+    var dbLatitude = ""
+    var dbLongitude = ""
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+
+    @IBAction func saveFile(_ sender: Any) {
+        ref = Database.database().reference().child("posts").childByAutoId()
+        
+        
+        let postObject = [
+            "uid": dbUserID,
+            "fileURL": dbFileURL,
+            "bird": dbBird,
+            "confidence": dbConfidence,
+            "latitude": dbLatitude,
+            "longitude": dbLongitude
+            ] as [String:Any]
+        
+        self.ref.setValue(postObject, withCompletionBlock: { error, ref in
+            if error == nil {
+                print("Success")
+                AlertController.showAlert(inViewController: self, title: "SUCCESS", message: "You have successfully uploaded the file")
+            } else {
+                print(error)
+            }
+        })
+        
+    }
     let baseFirebaseStorageURL = "gs://badclassifier.appspot.com/birdSounds/"
     let storageRef = Storage.storage().reference()
     
@@ -44,9 +76,9 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        saveButton.isEnabled = false
         print(unknownURL)
-        
+        self.birdNameLable?.text = ""
         do{
             player = try AVAudioPlayer(contentsOf: unknownURL!)
             player.prepareToPlay()
@@ -108,52 +140,20 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
                             //                print("Response String: \(response.result.value!)")
                             ans =  "\(response.result.value!)"
                             var ansArray = ans.components(separatedBy: " ")
-                            self.birdNameLable?.text = ansArray[0].components(separatedBy: ":")[0]
-                            self.birdPercentageLabel?.text = ansArray[1]
-                            print(ansArray[0].components(separatedBy: ":")[0])
-                            if (ansArray[0].components(separatedBy: ":")[0] == "Andropadus") {
-                                self.displayImage?.image = UIImage(named: "AndropadusGeneric.jpg")
-                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Anthus") {
-                                self.displayImage?.image = UIImage(named: "AnthusGeneric.jpg")
-                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Camaroptera") {
-                                self.displayImage?.image = UIImage(named: "CamaropteraGeneric.jpg")
-                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Chlorophoneus") {
-                                self.displayImage?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
-                            } else if (ansArray[0].components(separatedBy: ":")[0] == "Cossypha") {
-                                self.displayImage?.image = UIImage(named: "CossyphaGeneric.jpeg")
-                            }
-        
-                            //                        self.temp.text = "Done"
-                            print(ans)
+                            self.birdNameLable?.text = self.getRealName(genus: ansArray[0].components(separatedBy: ":")[0]) + " " + ansArray[1]
+                            self.setPic(genus: ansArray[0].components(separatedBy: ":")[0])
                             
-                            self.ref = Database.database().reference().child("posts").childByAutoId()
+                            
+//                            self.birdPercentageLabel?.text = ansArray[1]
+                            print(ansArray[0].components(separatedBy: ":")[0])
+                           
                             
                             let user = Auth.auth().currentUser
-//                            if let user = user {
-//                                // The user's ID, unique to the Firebase project.
-//                                // Do NOT use this value to authenticate with your backend server,
-//                                // if you have one. Use getTokenWithCompletion:completion: instead.
-//                                let uid = user.uid
-//                                let email = user.email
-//                                let photoURL = user.photoURL
-//                                // ...
-//                            }
-                            let postObject = [
-                                "uid": user!.uid,
-                                "fileURL": "\(url!)",
-                                "bird": ansArray[0].components(separatedBy: ":")[0],
-                                "confidence": ansArray[1],
-                            ] as [String:Any]
-                            
-                            self.ref.setValue(postObject, withCompletionBlock: { error, ref in
-                                if error == nil {
-                                    print("Success")
-                                } else {
-                                    print(error)
-                                }
-                            })
-                            
-        
+                            self.dbUserID =  user!.uid
+                            self.dbFileURL = "\(url!)"
+                            self.dbBird = ansArray[0].components(separatedBy: ":")[0]
+                            self.dbConfidence = ansArray[1]
+                            self.saveButton.isEnabled = true
                         } else {
                             ans = "404 API request failed"
                         }
@@ -169,13 +169,75 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         let location = locations[0]
         
         let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        
+        
+        
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        dbLatitude = "\(location.coordinate.latitude)"
+        dbLongitude = "\(location.coordinate.longitude)"
 //        print("latitude: \(location.coordinate.latitude)")
 //        print("longitude: \(location.coordinate.longitude)")
-                map.setRegion(region, animated: true)
+                map.setRegion(region, animated: false)
+//                self.map.showsUserLocation = true
+        newPin.coordinate = myLocation
+        map.addAnnotation(newPin)
+    }
+    
+    func getRealName(genus: String) -> String {
+        switch genus {
+        case "Andropadus":
+            return "Sombre GreenBul"
+        case "Anthus":
+            return "African Rock Pipit"
+        case "Camaroptera":
+            return "Green Backed Camaroptera"
+        case "Cercotrichas":
+            return "White Browed Scrub Robin"
+        case "Chlorophoneus":
+            return "Olive Bushshrike"
+        case "Cossypha":
+            return "Cape Robin Chat"
+        case "Laniarius":
+            return "Southern Boubou"
+        case "Prinia":
+            return "Karoo Prinia"
+        case "Sylvia":
+            return "Chestnut Vented Warbler"
+        case "Telophorus":
+            return "Bokmakierie"
+        default:
+            return genus
+        }
+    }
+    
+    func setPic(genus: String){
+        switch genus {
+        case "Andropadus":
+            self.imageView?.image = UIImage(named: "AndropadusGeneric.jpg")
+        case "Anthus":
+            self.imageView?.image = UIImage(named: "AnthusGeneric.jpg")
+        case "Camaroptera":
+            self.imageView?.image = UIImage(named: "CamaropteraGeneric.jpg")
+        case "Cercotrichas":
+            self.imageView?.image = UIImage(named: "Cercotrichas.jpg")
+        case "Chlorophoneus":
+            self.imageView?.image = UIImage(named: "ChlorophonuesGeneric.jpg")
+        case "Cossypha":
+            self.imageView?.image = UIImage(named: "CossyphaGeneric.jpeg")
+        case "Laniarius":
+            self.imageView?.image = UIImage(named: "Laniarius.jpg")
+        case "Prinia":
+            self.imageView?.image = UIImage(named: "Prinia.jpg")
+        case "Sylvia":
+            self.imageView?.image = UIImage(named: "Sylvia.jpg")
+        case "Telophorus":
+            self.imageView?.image = UIImage(named: "Telophorus.jpg")
+        default:
+            print("NO MATCH")
+        }
         
-                self.map.showsUserLocation = true
+        
     }
 
 }

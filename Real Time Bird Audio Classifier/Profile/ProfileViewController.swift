@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var signoutButton: UIButton!
     
     @IBAction func signOut(_ sender: Any) {
         do {
@@ -28,6 +29,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signoutButton.layer.cornerRadius = 10
+        signoutButton.clipsToBounds = true
         let user = Auth.auth().currentUser
         if let user = user {
             // The user's ID, unique to the Firebase project.
@@ -35,10 +38,8 @@ class ProfileViewController: UIViewController {
             // if you have one. Use getTokenWithCompletion:completion: instead.
             let uid = user.uid
             let email = user.email
-            let photoURL = user.photoURL
-            let temp = user.refreshToken
-            usernameLabel?.text = temp
-            emailLabel?.text = uid
+    
+            emailLabel?.text = email
             // ...
         }
         // Do any additional setup after loading the view.

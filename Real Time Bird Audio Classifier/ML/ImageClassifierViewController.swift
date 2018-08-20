@@ -14,11 +14,11 @@ import CoreML
 class ImageClassifierViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var myImageView: UIImageView!
-    @IBOutlet weak var importImageButton: NSLayoutConstraint!
-//    @IBOutlet weak var identifierLabel: UILabel!
+    
     @IBOutlet weak var classifierLabel: UILabel!
     @IBOutlet weak var Accuracy: UILabel!
     
+    @IBOutlet weak var selectImage: UIButton!
     
     
     var model: it_5!
@@ -30,7 +30,12 @@ class ImageClassifierViewController: UIViewController, UINavigationControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        selectImage.layer.cornerRadius = 10
+        selectImage.clipsToBounds = true
+        
+        classifierLabel?.text = ""
+        Accuracy?.text = ""
+        
         // Do any additional setup after loading the view.
     }
 

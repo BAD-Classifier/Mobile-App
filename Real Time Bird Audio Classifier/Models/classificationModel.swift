@@ -13,10 +13,10 @@ class classificationModel {
     var soundURL:String
     var bird:String
     var confidence:String
-    var latitude:Double
-    var longitude:Double
+    var latitude:String
+    var longitude:String
     
-    init(uid:String, soundURL:String, bird:String, confidence: String, latitude: Double, longitude:Double) {
+    init(uid:String, soundURL:String, bird:String, confidence: String, latitude: String, longitude:String) {
         self.uid = uid
         self.soundURL = soundURL
         self.bird = bird

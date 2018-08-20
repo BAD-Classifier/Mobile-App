@@ -14,6 +14,9 @@ class SignInViewController: UIViewController, UIApplicationDelegate {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
 
+    @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
+    
     
     @IBAction func signIn(_ sender: Any) {
         guard let email = emailTF.text,
@@ -37,6 +40,13 @@ class SignInViewController: UIViewController, UIApplicationDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        signinButton.layer.cornerRadius = 10
+        signinButton.clipsToBounds = true
+        
+        signupButton.layer.cornerRadius = 10
+        signupButton.clipsToBounds = true
+        
+        
 
         // Do any additional setup after loading the view.
     }

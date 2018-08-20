@@ -22,45 +22,6 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
     var ref: DatabaseReference!
     
     @IBAction func refreshTable(_ sender: Any) {
-        let user = Auth.auth().currentUser
-        if let user = user {
-            _ = user.uid
-        }
-        //        print(user?.uid as Any)
-        
-        ref = Database.database().reference()
-        let userID = Auth.auth().currentUser?.uid
-        //        print("USERID: \(String(describing: userID))")
-        ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            for temp in value!{
-                //                print("value: \(temp.value)")
-                let res = temp.value as? NSDictionary
-                //                print("res: \(String(describing: res!["bird"]))")
-                if ("\(String(describing: res!["bird"]))" == user!.uid){
-                    let tempPost = classificationModel(uid: "\(String(describing: res!["bird"]))", soundURL: "\(String(describing: res!["fileURL"]))", bird: "\(String(describing: res!["bird"]))", confidence: "\(String(describing: res!["confidence"]))", latitude: 0, longitude: 0)
-                   posts.append(tempPost)
-                    self.tableView.reloadData()
-                }
-            }
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        tableView.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         posts.removeAll()
         let user = Auth.auth().currentUser
         if let user = user {
@@ -81,7 +42,7 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
                 print("FUCK: \(String(describing: res!["uid"]!))")
                 if ("\(res!["uid"]!)" == user!.uid){
                     print("TRUE: \(res!["bird"]!)")
-                    let tempPost = classificationModel(uid: "\(res!["bird"]!)", soundURL: "\(res!["fileURL"]!)", bird:  "\(res!["bird"]!)", confidence:  "\(res!["confidence"]!)", latitude: 0, longitude: 0)
+                    let tempPost = classificationModel(uid: "\(res!["bird"]!)", soundURL: "\(res!["fileURL"]!)", bird:  "\(res!["bird"]!)", confidence:  "\(res!["confidence"]!)", latitude: "\(res!["latitude"]!)", longitude: "\(res!["longitude"]!)")
                     print(tempPost.bird)
                     print(tempPost.confidence)
                     posts.append(tempPost)
@@ -100,6 +61,60 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
         tableView.reloadData()
     }
     
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        posts.removeAll()
+        let user = Auth.auth().currentUser
+        if let user = user {
+            _ = user.uid
+        }
+        //        print(user?.uid as Any)
+        
+        ref = Database.database().reference()
+        let userID = Auth.auth().currentUser?.uid
+        //        print("USERID: \(String(describing: userID))")
+        ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            for temp in value!{
+                //                print("value: \(temp.value)")
+                let res = temp.value as? NSDictionary
+                //                print("res: \(String(describing: res!["bird"]))")
+                print("USER ID: \(user!.uid)")
+                print("FUCK: \(String(describing: res!["uid"]!))")
+                if ("\(res!["uid"]!)" == user!.uid){
+                    print("TRUE: \(res!["bird"]!)")
+                    let tempPost = classificationModel(uid: "\(res!["bird"]!)", soundURL: "\(res!["fileURL"]!)", bird:  "\(res!["bird"]!)", confidence:  "\(res!["confidence"]!)", latitude: "\(res!["latitude"]!)", longitude: "\(res!["longitude"]!)")
+                    print(tempPost.bird)
+                    print(tempPost.confidence)
+                    posts.append(tempPost)
+                    self.tests.append(tempPost.bird)
+                    self.tableView.reloadData()
+                    for temp in posts {
+                        print(temp.bird)
+                        print(temp.confidence)
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        tableView.reloadData()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+      
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -111,13 +126,16 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "previousCell", for: indexPath)
         
-        cell.textLabel?.text = posts[indexPath.row].bird
+        cell.textLabel?.text = getRealName(genus: posts[indexPath.row].bird)
+        cell.detailTextLabel?.text = posts[indexPath.row].confidence
+//        cell.textLabel.subtit
 //        cell.textLabel?.text = tests[indexPath.row]
 //        print("\(posts[indexPath.row].bird)")
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         postsindex = indexPath.row
         performSegue(withIdentifier: "segue2", sender: self)
     }
@@ -133,5 +151,32 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getRealName(genus: String) -> String {
+        switch genus {
+        case "Andropadus":
+            return "Sombre GreenBul"
+        case "Anthus":
+            return "African Rock Pipit"
+        case "Camaroptera":
+            return "Green Backed Camaroptera"
+        case "Cercotrichas":
+            return "White Browed Scrub Robin"
+        case "Chlorophoneus":
+            return "Olive Bushshrike"
+        case "Cossypha":
+            return "Cape Robin Chat"
+        case "Laniarius":
+            return "Southern Boubou"
+        case "Prinia":
+            return "Karoo Prinia"
+        case "Sylvia":
+            return "Chestnut Vented Warbler"
+        case "Telophorus":
+            return "Bokmakierie"
+        default:
+            return genus
+        }
+    }
 
 }

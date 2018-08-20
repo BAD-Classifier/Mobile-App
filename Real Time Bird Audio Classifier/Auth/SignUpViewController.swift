@@ -11,7 +11,9 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController, UIApplicationDelegate {
 
-
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var signInButton: UIButton!
     
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var usernameTF: UITextField!
@@ -63,7 +65,11 @@ class SignUpViewController: UIViewController, UIApplicationDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        signInButton.layer.cornerRadius = 10
+        signInButton.clipsToBounds = true
+        
+        signUpButton.layer.cornerRadius = 10
+        signUpButton.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 
