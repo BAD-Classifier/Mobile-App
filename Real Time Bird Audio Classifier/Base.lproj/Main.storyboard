@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,69 +19,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqn-Zg-Mfw">
-                                <rect key="frame" x="110" y="256" width="155" height="155"/>
-                                <state key="normal" image="RecordButton"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqn-Zg-Mfw">
+                                <rect key="frame" x="110" y="258.5" width="155" height="155"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="SI9-XB-Ost"/>
+                                    <constraint firstAttribute="width" constant="155" id="d8z-8d-z6T"/>
+                                </constraints>
+                                <state key="normal" image="Oval"/>
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y0v-6W-MeO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m1-Yz-wAe">
-                                <rect key="frame" x="125.5" y="426" width="125.5" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiY-u2-t52">
-                                <rect key="frame" x="143" y="478" width="90" height="90"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiY-u2-t52">
+                                <rect key="frame" x="140" y="454.5" width="95" height="95"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="4pg-PX-S2j"/>
-                                    <constraint firstAttribute="width" secondItem="BiY-u2-t52" secondAttribute="height" multiplier="1:1" id="te4-k6-AM8"/>
+                                    <constraint firstAttribute="width" constant="95" id="AXV-NT-05b"/>
+                                    <constraint firstAttribute="height" constant="95" id="Qvf-qe-zG7"/>
                                 </constraints>
-                                <state key="normal" image="StopRecordButton"/>
+                                <state key="normal" image="STOP"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MZR-7u-fz0"/>
                                     <segue destination="0Kd-Ax-agh" kind="show" identifier="segue1" id="bae-EH-2LF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-8J-t5v">
-                                <rect key="frame" x="16" y="135" width="177" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="QNF-c3-Dl8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tx-th-jDA">
-                                <rect key="frame" x="182" y="135" width="177" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m1-Yz-wAe">
+                                <rect key="frame" x="16" y="197" width="343" height="25.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k1q-8J-t5v" secondAttribute="trailing" constant="182" id="6Al-dv-DTe"/>
-                            <constraint firstItem="xqn-Zg-Mfw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HSb-Od-pDB"/>
-                            <constraint firstItem="1m1-Yz-wAe" firstAttribute="centerX" secondItem="xqn-Zg-Mfw" secondAttribute="centerX" id="NR1-l3-jHt"/>
-                            <constraint firstItem="BiY-u2-t52" firstAttribute="top" secondItem="1m1-Yz-wAe" secondAttribute="bottom" constant="29" id="Nkw-Nf-Xm8"/>
-                            <constraint firstItem="k1q-8J-t5v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OA7-R9-MiB"/>
-                            <constraint firstItem="1m1-Yz-wAe" firstAttribute="top" secondItem="xqn-Zg-Mfw" secondAttribute="bottom" constant="15" id="VKr-hu-3fD"/>
-                            <constraint firstItem="k1q-8J-t5v" firstAttribute="firstBaseline" secondItem="2tx-th-jDA" secondAttribute="firstBaseline" id="WN6-jo-Uza"/>
-                            <constraint firstItem="k1q-8J-t5v" firstAttribute="baseline" secondItem="2tx-th-jDA" secondAttribute="baseline" id="bGS-9Y-1CC"/>
-                            <constraint firstItem="2tx-th-jDA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="182" id="daZ-GV-QEz"/>
-                            <constraint firstItem="xqn-Zg-Mfw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fRy-I9-iMH"/>
-                            <constraint firstItem="BiY-u2-t52" firstAttribute="centerX" secondItem="1m1-Yz-wAe" secondAttribute="centerX" id="k0g-k8-lOq"/>
-                            <constraint firstItem="2tx-th-jDA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nyh-tE-BkP"/>
-                            <constraint firstItem="k1q-8J-t5v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="71" id="ppC-VH-X42"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1m1-Yz-wAe" secondAttribute="trailing" constant="16" id="1ps-cz-Nop"/>
+                            <constraint firstItem="xqn-Zg-Mfw" firstAttribute="top" secondItem="1m1-Yz-wAe" secondAttribute="bottom" constant="36" id="6yF-gj-mvo"/>
+                            <constraint firstItem="BiY-u2-t52" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="85S-yA-2GQ"/>
+                            <constraint firstItem="xqn-Zg-Mfw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="Hja-Vq-cZZ"/>
+                            <constraint firstItem="1m1-Yz-wAe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OLP-CR-MVE"/>
+                            <constraint firstItem="BiY-u2-t52" firstAttribute="top" secondItem="xqn-Zg-Mfw" secondAttribute="bottom" constant="41" id="Spb-ny-hGa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xqn-Zg-Mfw" secondAttribute="trailing" constant="110" id="VZt-vN-5r7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BiY-u2-t52" secondAttribute="trailing" constant="140" id="Xbn-DW-HXG"/>
+                            <constraint firstItem="1m1-Yz-wAe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="133" id="sDJ-5Z-kEc"/>
+                            <constraint firstItem="xqn-Zg-Mfw" firstAttribute="top" secondItem="1m1-Yz-wAe" secondAttribute="bottom" constant="36" id="xT0-eZ-7u4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Record" id="AI9-9Y-WQ6"/>
                     <connections>
-                        <outlet property="classificationLabel" destination="k1q-8J-t5v" id="Bl9-j5-p9p"/>
-                        <outlet property="percentageLabel" destination="2tx-th-jDA" id="ak3-ik-qV8"/>
                         <outlet property="recordingButton" destination="xqn-Zg-Mfw" id="Ggq-ps-rWx"/>
                         <outlet property="recordingLabel" destination="1m1-Yz-wAe" id="Cp7-ns-ETn"/>
                         <outlet property="stopRecordingButton" destination="BiY-u2-t52" id="571-Hf-bGS"/>
@@ -804,8 +792,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RecordButton" width="155" height="155"/>
-        <image name="StopRecordButton" width="155" height="155"/>
+        <image name="Oval" width="555" height="555"/>
+        <image name="STOP" width="555" height="555"/>
         <image name="genius" width="30" height="30"/>
         <image name="list" width="30" height="30"/>
         <image name="microphone" width="30" height="30"/>
