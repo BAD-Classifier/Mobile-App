@@ -30,8 +30,9 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
     var dbConfidence = ""
     var dbLatitude = ""
     var dbLongitude = ""
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var playbtn: UIButton!
     @IBOutlet weak var stopbtn: UIButton!
     
@@ -88,7 +89,11 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
         
         playbtn.layer.cornerRadius = 10
         playbtn.clipsToBounds = true
-        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         stopbtn.layer.cornerRadius = 10
         stopbtn.clipsToBounds = true
         saveButton.isEnabled = false
@@ -162,6 +167,7 @@ class LiveClassificationViewController: UIViewController, CLLocationManagerDeleg
 //                            self.birdPercentageLabel?.text = ansArray[1]
                             print(ansArray[0].components(separatedBy: ":")[0])
                            
+                            self.activityIndicator.stopAnimating()
                             
                             let user = Auth.auth().currentUser
                             self.dbUserID =  user!.uid

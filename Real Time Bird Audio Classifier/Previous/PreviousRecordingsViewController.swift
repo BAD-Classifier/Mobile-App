@@ -17,7 +17,8 @@ var postsindex = 0
 class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var tests = ["fuck", "you"]
     var ref: DatabaseReference!
     
@@ -66,6 +67,12 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.center = self.view.center
+//        activityIndicator.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         posts.removeAll()
         let user = Auth.auth().currentUser
         if let user = user {
@@ -102,6 +109,7 @@ class PreviousRecordingsViewController: UIViewController,  UITableViewDelegate, 
         }) { (error) in
             print(error.localizedDescription)
         }
+        activityIndicator.stopAnimating()
         tableView.reloadData()
     }
 

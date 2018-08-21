@@ -12,13 +12,19 @@ import FirebaseAuth
 class SignUpViewController: UIViewController, UIApplicationDelegate {
 
     @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet weak var signInButton: UIButton!
-    
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
+    
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     @IBAction func signUp(_ sender: Any) {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         guard let username = usernameTF.text,
             username != "",
             let email = emailTF.text,
@@ -26,6 +32,7 @@ class SignUpViewController: UIViewController, UIApplicationDelegate {
             let password = passwordTF.text,
             password != ""
             else {
+                activityIndicator.stopAnimating()
                 AlertController.showAlert(inViewController: self, title: "Missing Info", message: "Please fill out all fields")
                 return }
         
@@ -42,6 +49,7 @@ class SignUpViewController: UIViewController, UIApplicationDelegate {
                         AlertController.showAlert(inViewController: self, title: "Error", message: error!.localizedDescription)
                         return
                     }
+                    self.activityIndicator.stopAnimating()
                     self.performSegue(withIdentifier: "signUpSegue", sender: nil)
                 })
                 
