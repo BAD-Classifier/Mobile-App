@@ -8,6 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		067426805D83E98508E6778D /* Pods_Real_Time_Bird_Audio_Classifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9394471B67EB9488E6B2830B /* Pods_Real_Time_Bird_Audio_Classifier.framework */; };
+		84068DA62132061000B6C9E8 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84068DA52132061000B6C9E8 /* DemoTableViewController.swift */; };
+		84068DC121320BFF00B6C9E8 /* Prinia-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DA821320BFA00B6C9E8 /* Prinia-3.mp3 */; };
+		84068DC221320BFF00B6C9E8 /* Laniarius-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DA921320BFA00B6C9E8 /* Laniarius-1.mp3 */; };
+		84068DC321320BFF00B6C9E8 /* Camaroptera-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DAA21320BFA00B6C9E8 /* Camaroptera-3.mp3 */; };
+		84068DC421320BFF00B6C9E8 /* Chlorophoneus-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DAB21320BFB00B6C9E8 /* Chlorophoneus-1.mp3 */; };
+		84068DC521320BFF00B6C9E8 /* Prinia-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DAC21320BFB00B6C9E8 /* Prinia-2.mp3 */; };
+		84068DC621320BFF00B6C9E8 /* Sylvia-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DAD21320BFB00B6C9E8 /* Sylvia-1.mp3 */; };
+		84068DC721320BFF00B6C9E8 /* Anthus-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DAE21320BFB00B6C9E8 /* Anthus-2.mp3 */; };
+		84068DC821320BFF00B6C9E8 /* Andropadus-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DAF21320BFB00B6C9E8 /* Andropadus-3.mp3 */; };
+		84068DC921320BFF00B6C9E8 /* Andropadus-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB021320BFC00B6C9E8 /* Andropadus-1.mp3 */; };
+		84068DCA21320BFF00B6C9E8 /* Camaroptera-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB121320BFC00B6C9E8 /* Camaroptera-1.mp3 */; };
+		84068DCB21320BFF00B6C9E8 /* Cercotrichas-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB221320BFC00B6C9E8 /* Cercotrichas-3.mp3 */; };
+		84068DCC21320BFF00B6C9E8 /* Sylvia-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB321320BFC00B6C9E8 /* Sylvia-2.mp3 */; };
+		84068DCD21320BFF00B6C9E8 /* Cossypha-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB421320BFC00B6C9E8 /* Cossypha-1.mp3 */; };
+		84068DCE21320BFF00B6C9E8 /* Anthus-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB521320BFD00B6C9E8 /* Anthus-1.mp3 */; };
+		84068DCF21320BFF00B6C9E8 /* Laniarius-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB621320BFD00B6C9E8 /* Laniarius-2.mp3 */; };
+		84068DD021320BFF00B6C9E8 /* Cercotrichas-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB721320BFD00B6C9E8 /* Cercotrichas-1.mp3 */; };
+		84068DD121320BFF00B6C9E8 /* Cercotrichas-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB821320BFD00B6C9E8 /* Cercotrichas-2.mp3 */; };
+		84068DD221320BFF00B6C9E8 /* Anthus-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DB921320BFD00B6C9E8 /* Anthus-3.mp3 */; };
+		84068DD321320BFF00B6C9E8 /* Camaroptera-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DBA21320BFD00B6C9E8 /* Camaroptera-2.mp3 */; };
+		84068DD421320BFF00B6C9E8 /* Telophorus-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DBB21320BFE00B6C9E8 /* Telophorus-2.mp3 */; };
+		84068DD521320BFF00B6C9E8 /* Chlorophoneus-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DBC21320BFE00B6C9E8 /* Chlorophoneus-2.mp3 */; };
+		84068DD621320BFF00B6C9E8 /* Prinia-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DBD21320BFE00B6C9E8 /* Prinia-1.mp3 */; };
+		84068DD721320BFF00B6C9E8 /* Telophorus-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DBE21320BFE00B6C9E8 /* Telophorus-1.mp3 */; };
+		84068DD821320BFF00B6C9E8 /* Laniarius-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DBF21320BFF00B6C9E8 /* Laniarius-3.mp3 */; };
+		84068DD921320BFF00B6C9E8 /* Andropadus-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84068DC021320BFF00B6C9E8 /* Andropadus-2.mp3 */; };
+		84068DDC213213E100B6C9E8 /* DemoClassifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84068DDB213213E100B6C9E8 /* DemoClassifyViewController.swift */; };
 		840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */; };
 		840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 840F1F42211AC19D00F8E6DD /* it_5.mlmodel */; };
 		842E492E2123F8860003A8FE /* local_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 842E492D2123F8860003A8FE /* local_sound.mp3 */; };
@@ -51,6 +78,33 @@
 /* Begin PBXFileReference section */
 		11C32A3E17ED83D5376AC450 /* Pods-Real Time Bird Audio Classifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real Time Bird Audio Classifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-Real Time Bird Audio Classifier/Pods-Real Time Bird Audio Classifier.release.xcconfig"; sourceTree = "<group>"; };
 		2E3532E8948D60C3E8BCB0B7 /* Pods-Real Time Bird Audio Classifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real Time Bird Audio Classifier.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Real Time Bird Audio Classifier/Pods-Real Time Bird Audio Classifier.debug.xcconfig"; sourceTree = "<group>"; };
+		84068DA52132061000B6C9E8 /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
+		84068DA821320BFA00B6C9E8 /* Prinia-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Prinia-3.mp3"; sourceTree = "<group>"; };
+		84068DA921320BFA00B6C9E8 /* Laniarius-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Laniarius-1.mp3"; sourceTree = "<group>"; };
+		84068DAA21320BFA00B6C9E8 /* Camaroptera-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Camaroptera-3.mp3"; sourceTree = "<group>"; };
+		84068DAB21320BFB00B6C9E8 /* Chlorophoneus-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chlorophoneus-1.mp3"; sourceTree = "<group>"; };
+		84068DAC21320BFB00B6C9E8 /* Prinia-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Prinia-2.mp3"; sourceTree = "<group>"; };
+		84068DAD21320BFB00B6C9E8 /* Sylvia-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sylvia-1.mp3"; sourceTree = "<group>"; };
+		84068DAE21320BFB00B6C9E8 /* Anthus-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Anthus-2.mp3"; sourceTree = "<group>"; };
+		84068DAF21320BFB00B6C9E8 /* Andropadus-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Andropadus-3.mp3"; sourceTree = "<group>"; };
+		84068DB021320BFC00B6C9E8 /* Andropadus-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Andropadus-1.mp3"; sourceTree = "<group>"; };
+		84068DB121320BFC00B6C9E8 /* Camaroptera-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Camaroptera-1.mp3"; sourceTree = "<group>"; };
+		84068DB221320BFC00B6C9E8 /* Cercotrichas-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cercotrichas-3.mp3"; sourceTree = "<group>"; };
+		84068DB321320BFC00B6C9E8 /* Sylvia-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sylvia-2.mp3"; sourceTree = "<group>"; };
+		84068DB421320BFC00B6C9E8 /* Cossypha-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cossypha-1.mp3"; sourceTree = "<group>"; };
+		84068DB521320BFD00B6C9E8 /* Anthus-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Anthus-1.mp3"; sourceTree = "<group>"; };
+		84068DB621320BFD00B6C9E8 /* Laniarius-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Laniarius-2.mp3"; sourceTree = "<group>"; };
+		84068DB721320BFD00B6C9E8 /* Cercotrichas-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cercotrichas-1.mp3"; sourceTree = "<group>"; };
+		84068DB821320BFD00B6C9E8 /* Cercotrichas-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cercotrichas-2.mp3"; sourceTree = "<group>"; };
+		84068DB921320BFD00B6C9E8 /* Anthus-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Anthus-3.mp3"; sourceTree = "<group>"; };
+		84068DBA21320BFD00B6C9E8 /* Camaroptera-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Camaroptera-2.mp3"; sourceTree = "<group>"; };
+		84068DBB21320BFE00B6C9E8 /* Telophorus-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Telophorus-2.mp3"; sourceTree = "<group>"; };
+		84068DBC21320BFE00B6C9E8 /* Chlorophoneus-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chlorophoneus-2.mp3"; sourceTree = "<group>"; };
+		84068DBD21320BFE00B6C9E8 /* Prinia-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Prinia-1.mp3"; sourceTree = "<group>"; };
+		84068DBE21320BFE00B6C9E8 /* Telophorus-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Telophorus-1.mp3"; sourceTree = "<group>"; };
+		84068DBF21320BFF00B6C9E8 /* Laniarius-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Laniarius-3.mp3"; sourceTree = "<group>"; };
+		84068DC021320BFF00B6C9E8 /* Andropadus-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Andropadus-2.mp3"; sourceTree = "<group>"; };
+		84068DDB213213E100B6C9E8 /* DemoClassifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoClassifyViewController.swift; sourceTree = "<group>"; };
 		840F1F402119E4C700F8E6DD /* ImageClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifierViewController.swift; sourceTree = "<group>"; };
 		840F1F42211AC19D00F8E6DD /* it_5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = it_5.mlmodel; sourceTree = "<group>"; };
 		842E492D2123F8860003A8FE /* local_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = local_sound.mp3; sourceTree = "<group>"; };
@@ -110,6 +164,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84068DA721320AFB00B6C9E8 /* DemoSounds */ = {
+			isa = PBXGroup;
+			children = (
+				84068DB021320BFC00B6C9E8 /* Andropadus-1.mp3 */,
+				84068DC021320BFF00B6C9E8 /* Andropadus-2.mp3 */,
+				84068DAF21320BFB00B6C9E8 /* Andropadus-3.mp3 */,
+				84068DB521320BFD00B6C9E8 /* Anthus-1.mp3 */,
+				84068DAE21320BFB00B6C9E8 /* Anthus-2.mp3 */,
+				84068DB921320BFD00B6C9E8 /* Anthus-3.mp3 */,
+				84068DB121320BFC00B6C9E8 /* Camaroptera-1.mp3 */,
+				84068DBA21320BFD00B6C9E8 /* Camaroptera-2.mp3 */,
+				84068DAA21320BFA00B6C9E8 /* Camaroptera-3.mp3 */,
+				84068DB721320BFD00B6C9E8 /* Cercotrichas-1.mp3 */,
+				84068DB821320BFD00B6C9E8 /* Cercotrichas-2.mp3 */,
+				84068DB221320BFC00B6C9E8 /* Cercotrichas-3.mp3 */,
+				84068DAB21320BFB00B6C9E8 /* Chlorophoneus-1.mp3 */,
+				84068DBC21320BFE00B6C9E8 /* Chlorophoneus-2.mp3 */,
+				84068DB421320BFC00B6C9E8 /* Cossypha-1.mp3 */,
+				84068DA921320BFA00B6C9E8 /* Laniarius-1.mp3 */,
+				84068DB621320BFD00B6C9E8 /* Laniarius-2.mp3 */,
+				84068DBF21320BFF00B6C9E8 /* Laniarius-3.mp3 */,
+				84068DBD21320BFE00B6C9E8 /* Prinia-1.mp3 */,
+				84068DAC21320BFB00B6C9E8 /* Prinia-2.mp3 */,
+				84068DA821320BFA00B6C9E8 /* Prinia-3.mp3 */,
+				84068DAD21320BFB00B6C9E8 /* Sylvia-1.mp3 */,
+				84068DB321320BFC00B6C9E8 /* Sylvia-2.mp3 */,
+				84068DBE21320BFE00B6C9E8 /* Telophorus-1.mp3 */,
+				84068DBB21320BFE00B6C9E8 /* Telophorus-2.mp3 */,
+			);
+			path = DemoSounds;
+			sourceTree = "<group>";
+		};
+		84068DDA213213C300B6C9E8 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				84068DA52132061000B6C9E8 /* DemoTableViewController.swift */,
+				84068DDB213213E100B6C9E8 /* DemoClassifyViewController.swift */,
+			);
+			name = Demo;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		8434B5052116DB0700F6AECB = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +227,8 @@
 		8434B5102116DB0700F6AECB /* Real Time Bird Audio Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				84068DDA213213C300B6C9E8 /* Demo */,
+				84068DA721320AFB00B6C9E8 /* DemoSounds */,
 				84B4CBBD212B04BF00B5D4AC /* Auth */,
 				84B4CBBC212B046200B5D4AC /* Profile */,
 				84B4CBBB212B045D00B5D4AC /* ML */,
@@ -310,30 +408,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84068DD921320BFF00B6C9E8 /* Andropadus-2.mp3 in Resources */,
+				84068DD121320BFF00B6C9E8 /* Cercotrichas-2.mp3 in Resources */,
 				846E222B2124E22C009C4685 /* AnthusGeneric.jpg in Resources */,
+				84068DCC21320BFF00B6C9E8 /* Sylvia-2.mp3 in Resources */,
 				8434B51C2116DB0900F6AECB /* LaunchScreen.storyboard in Resources */,
+				84068DC321320BFF00B6C9E8 /* Camaroptera-3.mp3 in Resources */,
+				84068DCF21320BFF00B6C9E8 /* Laniarius-2.mp3 in Resources */,
+				84068DC921320BFF00B6C9E8 /* Andropadus-1.mp3 in Resources */,
+				84068DD321320BFF00B6C9E8 /* Camaroptera-2.mp3 in Resources */,
 				846E22252124E209009C4685 /* CossyphaGeneric.jpeg in Resources */,
+				84068DC221320BFF00B6C9E8 /* Laniarius-1.mp3 in Resources */,
 				846E220921241168009C4685 /* pika.png in Resources */,
 				84B4CBC7212B6C0900B5D4AC /* Laniarius.jpg in Resources */,
+				84068DCA21320BFF00B6C9E8 /* Camaroptera-1.mp3 in Resources */,
 				842E492E2123F8860003A8FE /* local_sound.mp3 in Resources */,
 				84B4CBC3212B6C0900B5D4AC /* Sylvia.jpg in Resources */,
 				846E222A2124E22C009C4685 /* AndropadusGeneric.jpg in Resources */,
 				846E221B2124CEE8009C4685 /* Anthus.wav in Resources */,
+				84068DC121320BFF00B6C9E8 /* Prinia-3.mp3 in Resources */,
+				84068DC421320BFF00B6C9E8 /* Chlorophoneus-1.mp3 in Resources */,
+				84068DD621320BFF00B6C9E8 /* Prinia-1.mp3 in Resources */,
+				84068DC521320BFF00B6C9E8 /* Prinia-2.mp3 in Resources */,
+				84068DD721320BFF00B6C9E8 /* Telophorus-1.mp3 in Resources */,
 				84B4CBC4212B6C0900B5D4AC /* Prinia.jpg in Resources */,
 				846E221F2124D031009C4685 /* Camaroptera.wav in Resources */,
+				84068DD521320BFF00B6C9E8 /* Chlorophoneus-2.mp3 in Resources */,
+				84068DD421320BFF00B6C9E8 /* Telophorus-2.mp3 in Resources */,
+				84068DC621320BFF00B6C9E8 /* Sylvia-1.mp3 in Resources */,
 				84B4CBC6212B6C0900B5D4AC /* Cercotrichas.jpg in Resources */,
+				84068DCD21320BFF00B6C9E8 /* Cossypha-1.mp3 in Resources */,
 				846E22202124D031009C4685 /* Chlorophoneus.wav in Resources */,
+				84068DD021320BFF00B6C9E8 /* Cercotrichas-1.mp3 in Resources */,
 				846E222D2124E22C009C4685 /* ChlorophonuesGeneric.jpg in Resources */,
 				846E22212124D031009C4685 /* Cossypha.wav in Resources */,
 				84B4CBA72129490100B5D4AC /* GoogleService-Info.plist in Resources */,
 				846E221A2124CEE8009C4685 /* Andropadus.wav in Resources */,
+				84068DCE21320BFF00B6C9E8 /* Anthus-1.mp3 in Resources */,
 				846E222C2124E22C009C4685 /* CamaropteraGeneric.jpg in Resources */,
+				84068DD821320BFF00B6C9E8 /* Laniarius-3.mp3 in Resources */,
 				84B4CBC5212B6C0900B5D4AC /* Telophorus.jpg in Resources */,
 				8434B5192116DB0900F6AECB /* Assets.xcassets in Resources */,
 				846E22232124E04C009C4685 /* pika.png in Resources */,
+				84068DCB21320BFF00B6C9E8 /* Cercotrichas-3.mp3 in Resources */,
 				8434B5172116DB0700F6AECB /* Main.storyboard in Resources */,
+				84068DD221320BFF00B6C9E8 /* Anthus-3.mp3 in Resources */,
+				84068DC721320BFF00B6C9E8 /* Anthus-2.mp3 in Resources */,
 				846E221421245262009C4685 /* andropadus.mp3 in Resources */,
 				846E221521245262009C4685 /* anthus.mp3 in Resources */,
+				84068DC821320BFF00B6C9E8 /* Andropadus-3.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +525,9 @@
 				84B4CBB7212AC18700B5D4AC /* PreviousPlaybackViewController.swift in Sources */,
 				8434B5142116DB0700F6AECB /* RecordSoundsViewController.swift in Sources */,
 				840F1F43211AC19E00F8E6DD /* it_5.mlmodel in Sources */,
+				84068DDC213213E100B6C9E8 /* DemoClassifyViewController.swift in Sources */,
 				84B4CBAF2129702800B5D4AC /* ProfileViewController.swift in Sources */,
+				84068DA62132061000B6C9E8 /* DemoTableViewController.swift in Sources */,
 				84B4CBB3212A19A900B5D4AC /* classificationModel.swift in Sources */,
 				840F1F412119E4C700F8E6DD /* ImageClassifierViewController.swift in Sources */,
 				84B4CBAD21295F8300B5D4AC /* AlerController.swift in Sources */,
