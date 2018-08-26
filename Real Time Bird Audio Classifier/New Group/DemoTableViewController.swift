@@ -63,7 +63,7 @@ class DemoTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "demoCell", for: indexPath)
         
-        cell.textLabel?.text = demoSounds[indexPath.row]
+        cell.textLabel?.text = getRealName(genus1: demoSounds[indexPath.row])
 //        cell.detailTextLabel?.text = posts[indexPath.row].confidence
 
         return cell
@@ -84,5 +84,33 @@ class DemoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         // Pass the selected object to the new view controller.
     }
     */
+    func getRealName(genus1: String) -> String {
+        let suffix = genus1.suffix(2)
+        let genus = genus1.dropLast(2)
+        switch genus {
+        case "Andropadus":
+            return ("Sombre GreenBul" + suffix)
+        case "Anthus":
+            return "African Rock Pipit" + suffix
+        case "Camaroptera":
+            return "Green Backed Camaroptera" + suffix
+        case "Cercotrichas":
+            return "White Browed Scrub Robin" + suffix
+        case "Chlorophoneus":
+            return "Olive Bushshrike" + suffix
+        case "Cossypha":
+            return "Cape Robin Chat" + suffix
+        case "Laniarius":
+            return "Southern Boubou" + suffix
+        case "Prinia":
+            return "Karoo Prinia" + suffix
+        case "Sylvia":
+            return "Chestnut Vented Warbler" + suffix
+        case "Telophorus":
+            return "Bokmakierie" + suffix
+        default:
+            return genus1
+        }
+    }
 
 }

@@ -162,7 +162,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="previousCell" textLabel="5Lu-O4-zum" detailTextLabel="hbg-bv-8j9" imageView="XkB-zJ-yG6" style="IBUITableViewCellStyleSubtitle" id="reu-HC-Qtj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="previousCell" textLabel="5Lu-O4-zum" detailTextLabel="hbg-bv-8j9" style="IBUITableViewCellStyleValue1" id="reu-HC-Qtj">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reu-HC-Qtj" id="VIH-yH-VsY">
@@ -170,23 +170,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Lu-O4-zum">
-                                                    <rect key="frame" x="15" y="3" width="36.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="12" width="36.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hbg-bv-8j9">
-                                                    <rect key="frame" x="15" y="23.5" width="50" height="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hbg-bv-8j9">
+                                                    <rect key="frame" x="301" y="12" width="59" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XkB-zJ-yG6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -359,7 +355,7 @@
             </objects>
             <point key="canvasLocation" x="420" y="3151.5742128935535"/>
         </scene>
-        <!--Demo Audio-->
+        <!--Demo-->
         <scene sceneID="7ls-j9-lQM">
             <objects>
                 <viewController id="BpD-34-SrK" customClass="DemoTableViewController" customModule="Real_Time_Bird_Audio_Classifier" customModuleProvider="target" sceneMemberID="viewController">
@@ -371,12 +367,21 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="demoCell" id="48n-yj-mYa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="demoCell" textLabel="s2c-Li-iz2" style="IBUITableViewCellStyleDefault" id="48n-yj-mYa">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="48n-yj-mYa" id="1hn-Yk-zOi">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s2c-Li-iz2">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -395,7 +400,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3nJ-fd-1bZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Demo Audio" id="XIp-Vb-Ebw"/>
+                    <navigationItem key="navigationItem" title="Demo" id="XIp-Vb-Ebw"/>
                     <connections>
                         <outlet property="tableView" destination="PAd-kG-u04" id="pPD-gW-TZN"/>
                         <segue destination="QXT-C1-ZJo" kind="show" identifier="demoSegue" id="KTY-Gl-WJx"/>
@@ -421,6 +426,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="stopSound:" destination="QXT-C1-ZJo" eventType="touchUpInside" id="1b8-qD-tWR"/>
                                     <action selector="stopSound:" destination="EOU-Jq-xpv" eventType="touchUpInside" id="N5X-Vp-y7E"/>
                                     <action selector="stopSounds:" destination="0Kd-Ax-agh" eventType="touchUpInside" id="9E4-44-WPf"/>
                                 </connections>
@@ -450,6 +456,7 @@
                                 <connections>
                                     <action selector="playSound:" destination="0Kd-Ax-agh" eventType="touchUpInside" id="A3G-Hq-vbR"/>
                                     <action selector="playSound:" destination="EOU-Jq-xpv" eventType="touchUpInside" id="GfA-5M-E7F"/>
+                                    <action selector="playSound:" destination="QXT-C1-ZJo" eventType="touchUpInside" id="ocR-U8-O50"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -728,8 +735,8 @@
                         <segue destination="V3P-TH-bfp" kind="relationship" relationship="viewControllers" id="x0K-fs-W6z"/>
                         <segue destination="PQR-Pp-BWg" kind="relationship" relationship="viewControllers" id="GGL-os-4m7"/>
                         <segue destination="3gc-g1-KGA" kind="relationship" relationship="viewControllers" id="TX5-A8-uUg"/>
-                        <segue destination="zKc-Va-AYw" kind="relationship" relationship="viewControllers" id="Vlc-0O-rbq"/>
                         <segue destination="cUa-LT-LwO" kind="relationship" relationship="viewControllers" id="9Tr-Lw-ddm"/>
+                        <segue destination="zKc-Va-AYw" kind="relationship" relationship="viewControllers" id="Vlc-0O-rbq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8P-gM-nXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -923,13 +930,16 @@
         <scene sceneID="Mfw-Rw-qax">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cUa-LT-LwO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Demo" id="WK2-20-YM0"/>
+                    <tabBarItem key="tabBarItem" title="Demo" image="layers" selectedImage="layers" id="WK2-20-YM0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qbg-F0-Ju2">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZuK-OZ-PJz">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BpD-34-SrK" kind="relationship" relationship="rootViewController" id="28E-kh-2AG"/>
                     </connections>
@@ -943,6 +953,7 @@
         <image name="Oval" width="555" height="555"/>
         <image name="STOP" width="555" height="555"/>
         <image name="genius" width="30" height="30"/>
+        <image name="layers" width="30" height="30"/>
         <image name="list" width="30" height="30"/>
         <image name="microphone" width="30" height="30"/>
         <image name="user_group_man_woman" width="30" height="30"/>
