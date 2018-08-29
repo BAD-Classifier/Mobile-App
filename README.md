@@ -17,7 +17,7 @@ Record             |  Classification
 :-------------------------:|:-------------------------:
 ![](https://i.imgur.com/7BeRpF7.png)  |  ![](https://i.imgur.com/GBQ3uvX.jpg)
 
-Re            |  Classification
+History            |  Sign Out
 :-------------------------:|:-------------------------:
-![](https://i.imgur.com/7BeRpF7.png)  |  ![](https://i.imgur.com/GBQ3uvX.jpg)
+![](https://i.imgur.com/WI1DAih.png)  |  ![](https://i.imgur.com/wkp1NtC.png)
 
